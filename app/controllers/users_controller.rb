@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :authorize_request, except: :create
 
+  namespace :user do
+    resources :poems
+  end
+
   # GET /users
   def index
     @users = User.all
