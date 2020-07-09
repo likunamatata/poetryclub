@@ -1,0 +1,20 @@
+.write{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.DraftEditor-root {
+  height: 55vh;
+}
+
+#title-input, div.DraftEditor-root{
+  overflow-y: auto;
+  margin: 20px 0px;
+  padding: 10px 10px;
+  color: grey;
+  text-align: left;
+  width: 70%;
+  background-color: #bdc2cf80;
+  border: none;
+}

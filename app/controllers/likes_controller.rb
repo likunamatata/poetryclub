@@ -1,11 +1,13 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: [:show, :update, :destroy]
+  before_action :set_like, only: [:create, :show, :update, :destroy]
+  before_action :find_poem
 
   # GET /likes
   def index
-    @likes = Like.all
+    @likes = Like.where(poem_id: params[:poem_id])
+    @mine = @likes.where(user_id: params[:user_id]).length()
 
-    render json: @likes
+    render json: {count: @likes.length(), mine: @mine}
   end
 
   # GET /likes/1
@@ -15,12 +17,15 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
-    @like = Like.new(like_params)
+    @likes = Like.where(poem_id: params[:poem_id])
+    @mine = @likes.where(user_id: params[:user_id])
 
-    if @like.save
-      render json: @like, status: :created, location: @like
+    if already_liked?
+      @like.destroy
+      render json: {count: @likes.length(), mine: @mine.length()}
     else
-      render json: @like.errors, status: :unprocessable_entity
+      @poem.likes.create(user_id: params[:user_id])
+      render json: {count: @likes.length(), mine: @mine.length()}
     end
   end
 
@@ -34,18 +39,26 @@ class LikesController < ApplicationController
   end
 
   # DELETE /likes/1
+
+
   def destroy
     @like.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_like
-      @like = Like.find(params[:id])
+    def find_poem
+      @poem = Poem.find(params[:poem_id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def like_params
-      params.require(:like).permit(:user_id, :poem_id)
+    def set_like
+      @poem = Poem.find(params[:poem_id])
+      @like = @poem.likes.where(user_id: params[:user_id])[0]
     end
+
+    def already_liked?
+      Like.where(user_id: params[:user_id], poem_id: params[:poem_id]).exists?
+    end  
+
+    
 end

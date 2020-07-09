@@ -4,13 +4,10 @@ import "./App.css";
 
 import Landing from "./components/Landing";
 import Header from "./components/Header";
+import Routes from "./components/Routes";
+import Nav from './components/Nav'
 
-import {
-  loginUser,
-  registerUser,
-  verifyUser
-} from './services/auth-helpers'
-
+import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +15,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       authFormData: {
-        username: '',
+        username: "",
         email: "",
         password: "",
       },
@@ -77,29 +74,35 @@ class App extends Component {
           currentUser={this.state.currentUser}
           history={this.props.history}
         />
-
+        <div className='main'>
         {!this.state.currentUser ? (
           //logged out landing page
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <Landing
-                  history={this.props.history}
-                  handleLogin={this.handleLogin}
-                  handleChange={this.authHandleChange}
-                  formData={this.state.authFormData}
-                  currentUser={this.state.currentUser}
-                  handleRegister={this.handleRegister}
-                />
-              )}
-            />
-
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Landing
+                history={this.props.history}
+                handleLogin={this.handleLogin}
+                handleChange={this.authHandleChange}
+                formData={this.state.authFormData}
+                currentUser={this.state.currentUser}
+                handleRegister={this.handleRegister}
+              />
+            )}
+          />
         ) : (
           //screens to show when logged in
-          <></>
+          <Routes
+            history={this.props.history}
+                currentUser={this.state.currentUser}
+          />
         )}
-      </div>
+        </div>
+        {!this.state.currentUser ? '' : <Nav />}
+
+        </div>
+        
     );
   }
 }

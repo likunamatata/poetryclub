@@ -1,0 +1,58 @@
+.poem{
+  width: 100%;
+  margin: 10px 0px;
+  text-align: left;
+}
+
+.like{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.svg{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.liked{
+  fill: #b54c50;
+  stroke: #b54c50;
+  stroke-width: 2px;
+  width: 18px;
+  height: 20px;
+}
+
+.unliked{
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+  width: 18px;
+  height: 20px;
+}
+
+.button{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.count{
+  margin: 0px;
+}
+
+.poemSnippet{
+  width: 50%;
+}
+
+.poemLine{
+  min-height: 15px;
+  margin: 0px;
+}

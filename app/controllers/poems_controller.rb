@@ -38,6 +38,21 @@ class PoemsController < ApplicationController
     @poem.destroy
   end
 
+  #-------CUSTOM-------#
+
+  # GET /users/1/poems
+
+  def user_poems
+    @poems = Poem.where(user_id: params[:user_id])
+    render json:@poems
+  end
+
+  def search_poems
+    print params[:keyword]
+    @poems = Poem.where("title LIKE ? OR text LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    render json:@poems
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_poem
@@ -46,6 +61,6 @@ class PoemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poem_params
-      params.require(:poem).permit(:text, :user_id)
+      params.require(:poem).permit( :text, :user_id, :title, :username, :poem_json)
     end
 end

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import styles from "../../styles/Landing.module.css"
+import cx from 'classnames'
 
 class Register extends Component {
   constructor(props) {
@@ -11,33 +13,32 @@ class Register extends Component {
   render() {
     return (
       <div className="register">
-        <form className="auth-form" onSubmit={this.props.handleRegister}>
+        <form className={styles.authForm} onSubmit={this.props.handleRegister}>
           <input
+            className={styles.input}
             name="username"
             type="text"
-            placeholder="Enter your username"
+            placeholder="Username"
             value={this.props.formData.username}
             onChange={this.props.handleChange}
           />
           <input
+            className={styles.input}
             name="email"
             type="text"
-            placeholder="Enter your email"
+            placeholder="Email"
             value={this.props.formData.email}
             onChange={this.props.handleChange}
           />
           <input
+            className={styles.input}
             name="password"
             type="password"
-            placeholder="Enter your password"
+            placeholder="Password"
             value={this.props.formData.password}
             onChange={this.props.handleChange}
           />
-          <p className="password-min">
-            password must contain a minimum of 8 characters and at least 1
-            special character
-          </p>
-          <button onClick={this.props.handleRegister}>Go</button>
+          <button className={cx(styles.button, styles.registerButton)} onClick={this.props.handleRegister}>Register</button>
         </form>
       </div>
     );
