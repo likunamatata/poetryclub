@@ -5,7 +5,7 @@ import "./App.css";
 import Landing from "./components/Landing";
 import Header from "./components/Header";
 import Routes from "./components/Routes";
-import Nav from './components/Nav'
+import Nav from "./components/Nav";
 
 import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
 
@@ -14,23 +14,27 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: null,
-      authFormData: {
+      registerFormData: {
         username: "",
         email: "",
-        password: "",
+        password: ""
+      },
+      loginFormData: {
+        username: "",
+        password: ""
       },
     };
   }
 
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
-    const currentUser = await loginUser(this.state.authFormData);
+    const currentUser = await loginUser(this.state.loginFormData);
     this.setState({ currentUser });
   };
 
   handleRegister = async (e) => {
     e.preventDefault();
-    const currentUser = await registerUser(this.state.authFormData);
+    const currentUser = await registerUser(this.state.registerFormData);
     this.setState({ currentUser });
     this.props.history.push("/welcome");
   };
@@ -43,11 +47,21 @@ class App extends Component {
     this.props.history.push("/");
   };
 
-  authHandleChange = (e) => {
+  loginHandleChange = (e) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
-      authFormData: {
-        ...prevState.authFormData,
+      loginFormData: {
+        ...prevState.loginFormData,
+        [name]: value,
+      },
+    }));
+  };
+
+  registerHandleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({
+      registerFormData: {
+        ...prevState.registerFormData,
         [name]: value,
       },
     }));
@@ -74,35 +88,35 @@ class App extends Component {
           currentUser={this.state.currentUser}
           history={this.props.history}
         />
-        <div className='main'>
-        {!this.state.currentUser ? (
-          //logged out landing page
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Landing
-                history={this.props.history}
-                handleLogin={this.handleLogin}
-                handleChange={this.authHandleChange}
-                formData={this.state.authFormData}
-                currentUser={this.state.currentUser}
-                handleRegister={this.handleRegister}
-              />
-            )}
-          />
-        ) : (
-          //screens to show when logged in
-          <Routes
-            history={this.props.history}
-                currentUser={this.state.currentUser}
-          />
-        )}
+        <div className="main">
+          {!this.state.currentUser ? (
+            //logged out landing page
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Landing
+                  history={this.props.history}
+                  handleLogin={this.handleLogin}
+                  loginHandleChange={this.loginHandleChange}
+                  registerHandleChange={this.registerHandleChange}
+                  loginFormData={this.state.loginFormData}
+                  registerFormData={this.state.registerFormData}
+                  currentUser={this.state.currentUser}
+                  handleRegister={this.handleRegister}
+                />
+              )}
+            />
+          ) : (
+            //screens to show when logged in
+            <Routes
+              history={this.props.history}
+              currentUser={this.state.currentUser}
+            />
+          )}
         </div>
-        {!this.state.currentUser ? '' : <Nav />}
-
-        </div>
-        
+        {!this.state.currentUser ? "" : <Nav />}
+      </div>
     );
   }
 }

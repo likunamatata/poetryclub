@@ -6,25 +6,28 @@ export default function Landing(props) {
   const {
     history,
     handleLogin,
-    handleChange,
-    formData,
+    loginHandleChange,
+    registerHandleChange,
+    loginFormData,
+    registerFormData,
     handleRegister,
   } = props;
+
 
   return (
     <div className='landing'>
       <Login
-        handleChange={handleChange}
+        handleChange={loginHandleChange}
         handleLogin={handleLogin}
         history={history}
-        formData={formData}
+        formData={loginFormData}
       />
       <p> or </p>
       <Register
-        handleChange={handleChange}
+        handleChange={registerHandleChange}
         handleRegister={handleRegister}
         history={history}
-        formData={formData}
+        formData={registerFormData}
       />
     </div>
   );

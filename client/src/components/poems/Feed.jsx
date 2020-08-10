@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getAllPoems } from "../../services/poem-helpers";
 import Poems from "./Poems"
 import styles from '../../styles/PoemsContainer.module.css'
+import Search from '../widgets/SearchBar'
 
 class Feed extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Feed extends Component {
       : <Poems poems={this.state.poems} currentUser={this.props.currentUser}/>);
     return (
       <div className={styles.container}>
-        <h1>Feed</h1>
+        <Search/>
         {poems}
       </div>
     );
