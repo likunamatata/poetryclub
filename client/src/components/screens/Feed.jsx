@@ -47,7 +47,7 @@ class Feed extends Component {
           })
   }
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const res = await getAllPoems();
     this.setState({
       poems: res.data,

@@ -1,8 +1,7 @@
 class LikesController < ApplicationController
   before_action :set_like, only: [:create, :show, :update, :destroy]
-  before_action :find_poem
 
-  # GET /likes
+  #GET /users/user:id/posts/post:id/likes
   def index
     @likes = Like.where(poem_id: params[:poem_id])
     @mine = @likes.where(user_id: params[:user_id]).length()
@@ -11,7 +10,7 @@ class LikesController < ApplicationController
   end
 
   # GET /likes/1
-  def show
+  def show 
     render json: @like
   end
 
@@ -24,6 +23,7 @@ class LikesController < ApplicationController
       @like.destroy
       render json: {count: @likes.length(), mine: @mine.length()}
     else
+      @poem = Poem.find(params[:poem_id])
       @poem.likes.create(user_id: params[:user_id])
       render json: {count: @likes.length(), mine: @mine.length()}
     end
@@ -39,17 +39,29 @@ class LikesController < ApplicationController
   end
 
   # DELETE /likes/1
-
-
   def destroy
     @like.destroy
   end
 
+  # CUSTOM GET /likes
+  def all_likes
+    @likes = Like.joins(:poem).select(
+      "likes.id,
+      likes.user_id,
+      likes.poem_id,
+      poems.username,
+      poems.title,
+      poems.text"
+    )
+    render json: @likes
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def find_poem
-      @poem = Poem.find(params[:poem_id])
-    end
+    # def find_poem
+    #   @poem = Poem.find(params[:poem_id])
+    # end
 
     def set_like
       @poem = Poem.find(params[:poem_id])

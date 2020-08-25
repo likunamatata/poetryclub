@@ -11,8 +11,8 @@ class Poems extends Component {
 
   render() {
     const poems = this.props.poems.map((poem, index) => (
-          <PoemSmall poem={poem} key={index} currentUser={this.props.currentUser} />
-        ))
+      <PoemSmall poem={poem} key={index} currentUser={this.props.currentUser} />
+    ))
     return (
       <div className={styles.container}>
         {poems}

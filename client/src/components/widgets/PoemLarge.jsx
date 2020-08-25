@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
 import { getPoemLikes } from "../../services/like-helpers";
+import { Twitter, Facebook, Mail } from 'react-social-sharing'
+
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -32,7 +34,7 @@ export default class PoemLarge extends Component {
     console.log(this.state)
     const { currentUser_id, poem_id } = this.props;
     const { heartClass, likes } = this.state;
-    const { title, username } = !this.state.poem ? "" : this.state.poem;
+    const { title, username, id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     try {
       parsed_text = JSON.parse(this.state.poem.text);
@@ -40,15 +42,9 @@ export default class PoemLarge extends Component {
       parsed_text = this.state.poem ? this.state.poem.text : "";
     }
 
-    const lines = !parsed_text
-      ? ""
-      : parsed_text.blocks.map((line, index) => {
-          return (
-            <p key={index} className={styles.poemLine}>
-              {line.text}
-            </p>
-          );
-        });
+    const lines = !parsed_text ? '' : parsed_text.blocks.map((line, index) => {
+      return <p key={index} className={styles.poemLine}>{line.text}</p>
+    })
 
     return (
       <div className={styles.poem}>
@@ -64,8 +60,20 @@ export default class PoemLarge extends Component {
             />
           </svg>
           <p className={styles.count}>{likes ? likes.count : ''}</p>
+        <div>
+          {console.log(this.state.poem)}
+          <Twitter
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Facebook
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Mail
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
         </div>
-      </div>
+        </div>
+        </div>
     );
   }
 }

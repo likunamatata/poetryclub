@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from "../../styles/Poem.module.css";
 import { likePoem, getPoemLikes } from "../../services/like-helpers";
 
@@ -52,11 +52,11 @@ export default class PoemSmall extends Component {
     console.log(poem)
     return (
       <div className={styles.poem}>
-      <Link to={`/poems/${poem.id}`}>
-        <p>{poem.title}</p>
-        <p className={styles.poemSnippet}>{`${first_line}...`}</p>
+        <Link to={`/poems/${poem.id}`}>
+          <p>{poem.title}</p>
+          <p className={styles.poemSnippet}>{`${first_line}...`}</p>
           <p>{`By ${poem.username}`}</p>
-          </Link>
+        </Link>
         <div className={styles.like}>
           <svg className={styles.svg}>
             <path
@@ -68,8 +68,8 @@ export default class PoemSmall extends Component {
           <p className={styles.count}>{likes.count}</p>
         </div>
         <hr />
-     
-        </div>
+
+      </div>
     );
   }
 }
