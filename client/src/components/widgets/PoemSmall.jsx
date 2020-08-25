@@ -26,7 +26,6 @@ export default class PoemSmall extends Component {
   };
 
   likeAndUpdate = async (user_id, poem_id) => {
-    console.log('Im liking', user_id, poem_id)
     const response = await likePoem(user_id, poem_id);
     this.setState({
       likes: response.data,
@@ -50,6 +49,7 @@ export default class PoemSmall extends Component {
 
     const first_line = parsed_text ? parsed_text.blocks[0].text : ''
 
+    console.log(poem)
     return (
       <div className={styles.poem}>
       <Link to={`/poems/${poem.id}`}>

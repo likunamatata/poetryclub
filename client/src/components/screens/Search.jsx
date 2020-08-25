@@ -12,6 +12,7 @@ class Feed extends Component {
       keyword: '',
       poems: []
     };
+    console.log(props)
   }
 
   handleChange = (e) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from '../../styles/Search.module.css'
 
-function SearchBar (props) {
+function SearchBar(props) {
     return (
       <div className={styles.container}>
         <form className={styles.authForm} onSubmit={(e) => {
