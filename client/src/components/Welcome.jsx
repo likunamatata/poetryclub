@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 class Welcome extends Component {
   constructor(props) {
@@ -9,17 +9,17 @@ class Welcome extends Component {
   }
 
 
-   
+
   render() {
 
     return (
       <div className='welcome'>
-         <h1>You're all set. go make a poetry now</h1>
+        <h1>You're all set. go make a poetry now</h1>
       </div>
     )
-    
+
   }
- 
+
 }
 
 export default Welcome;
