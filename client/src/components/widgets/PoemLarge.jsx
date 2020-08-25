@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
+import { Twitter, Facebook, Mail } from 'react-social-sharing'
+
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ export default class PoemLarge extends Component {
 
   render() {
 
-    const {title, username} = !this.state.poem ? '' : this.state.poem 
+    const { title, username,id } = !this.state.poem ? '' : this.state.poem
     let parsed_text = null;
     try {
       parsed_text = JSON.parse(this.state.poem.text);
@@ -25,7 +27,7 @@ export default class PoemLarge extends Component {
       parsed_text = this.state.poem ? this.state.poem.text : '';
     }
 
-    const lines = !parsed_text ? '' : parsed_text.blocks.map( (line, index) => {
+    const lines = !parsed_text ? '' : parsed_text.blocks.map((line, index) => {
       return <p key={index} className={styles.poemLine}>{line.text}</p>
     })
 
@@ -34,6 +36,18 @@ export default class PoemLarge extends Component {
         <h1>{title}</h1>
         <p>{username}</p>
         {lines}
+        <div>
+          {console.log(this.state.poem)}
+          <Twitter
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Facebook
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Mail
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+        </div>
       </div>
     );
   }
