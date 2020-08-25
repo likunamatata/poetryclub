@@ -48,7 +48,7 @@ function UserScreens(props) {
         path="/poems/:poem_id"
         render={(props) => {
           const { poem_id } = props.match.params;
-          return <PoemLarge poem_id={poem_id} history={props.history} currentUser_id={props.currentUser.id} />;
+          return <PoemLarge poem_id={poem_id} history={props.history} currentUser_id={props.currentUser} />;
         }}
       />
     </div>
