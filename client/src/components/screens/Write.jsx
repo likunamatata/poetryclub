@@ -37,6 +37,7 @@ class Write extends Component {
     event.preventDefault();
     createPoem(this.state.poem);
     this.props.history.push('/')
+    window.location.reload()
   };
 
   render() {
@@ -49,6 +50,7 @@ class Write extends Component {
           placeholder="Title"
           onChange={this.handleChange}
         />
+        {console.log(this.state.poem)}
         <div className='cursor'></div>
         <Editor editorState={this.state.editorState} onChange={this.onChange} />
         <button onClick={this.onSubmit}>Submit</button>
