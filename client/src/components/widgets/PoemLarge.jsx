@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
-import { getPoemLikes } from "../../services/like-helpers";
+import { likePoem, getPoemLikes } from "../../services/like-helpers";
 import { Twitter, Facebook, Mail } from 'react-social-sharing'
-
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -30,6 +29,14 @@ export default class PoemLarge extends Component {
     });
   };
 
+  likeAndUpdate = async (user_id, poem_id) => {
+    const response = await likePoem(user_id, poem_id);
+    this.setState({
+      likes: response.data,
+      heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
+    });
+  };
+
   render() {
     console.log(this.state)
     const { currentUser_id, poem_id } = this.props;
@@ -48,6 +55,23 @@ export default class PoemLarge extends Component {
 
     return (
       <div className={styles.poem}>
+
+        <div className= {styles.social}>
+          {console.log(this.state.poem)}
+          <Twitter
+            solid small
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Facebook
+            solid small
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+          <Mail
+            solid small
+            link={`https://poetryclub.surge.sh/poems/${id}`}
+          />
+        </div>
+
         <h1>{title}</h1>
         <p>{username}</p>
         {lines}
@@ -60,20 +84,8 @@ export default class PoemLarge extends Component {
             />
           </svg>
           <p className={styles.count}>{likes ? likes.count : ''}</p>
-        <div>
-          {console.log(this.state.poem)}
-          <Twitter
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
-          <Facebook
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
-          <Mail
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
         </div>
-        </div>
-        </div>
+      </div>
     );
   }
 }
