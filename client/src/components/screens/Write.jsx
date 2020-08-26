@@ -16,6 +16,11 @@ class Write extends Component {
         poem_json: {},
       },
     };
+    this.setDomEditorRef = ref => this.domEditor = ref;
+  }
+
+  componentDidMount() {
+    this.domEditor.focus()
   }
 
   handleChange = (event) => {
@@ -23,7 +28,7 @@ class Write extends Component {
     const editedPoem = Object.assign(this.state.poem, updatedField);
     this.setState({ poem: editedPoem });
   };
-  
+
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     const updatedField = { text: JSON.stringify(convertToRaw(contentState)) };
@@ -41,18 +46,26 @@ class Write extends Component {
   };
 
   render() {
+
+
+
     return (
       <div className='write'>
-        <input id="title-input"
+        <input
+          id="title-input"
           value={this.state.poem.title}
           name="title"
           type="text"
-          placeholder="Title"
+          placeholder="Title Goes Here..."
           onChange={this.handleChange}
         />
         {console.log(this.state.poem)}
-        <div className='cursor'></div>
-        <Editor editorState={this.state.editorState} onChange={this.onChange} />
+        <Editor
+          editorState={this.state.editorState}
+          onChange={this.onChange}
+          ref={this.setDomEditorRef}
+          placeholder="Tell us your poem..."
+        />
         <button onClick={this.onSubmit}>Submit</button>
       </div>
     );
