@@ -8,8 +8,17 @@ function SearchBar(props) {
           e.preventDefault();
           props.handleSearch();
         }} >
-        <input className={styles.input} name="keyword" type="text" placeholder="Search" onChange={props.handleChange} />
-  
+          <input
+            className={styles.input}
+            name="keyword"
+            type="text"
+            placeholder="Search"
+            onChange={props.handleChange} />
+          { window.location.pathname === '/search' ?
+            <input className={styles.submit} type="submit" value="Search" />
+            :
+            null
+          }
           </form>
       </div>
     );

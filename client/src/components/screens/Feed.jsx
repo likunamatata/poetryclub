@@ -3,8 +3,7 @@ import { getAllPoems, getSomePoems } from "../../services/poem-helpers";
 import Poems from "../widgets/Poems";
 import styles from "../../styles/PoemsContainer.module.css";
 import SearchBar from "../widgets/SearchBar";
-import Sort from '../widgets/Sort'
-import {sortBy} from '../../services/sort-helpers'
+
 
 class Feed extends Component {
   constructor(props) {
@@ -39,13 +38,6 @@ class Feed extends Component {
  
   };
 
-  handleSort = (e) => {
-    const sort = e.target.value
-    const { poems } = this.state
-    this.setState({
-            poems: poems.sort(sortBy[sort])
-          })
-  }
 
   componentDidMount = async () => {
     const res = await getAllPoems();
@@ -65,7 +57,6 @@ class Feed extends Component {
     return (
       <div className={styles.container}>
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
-        <Sort handleSort={this.handleSort}/>
         {poems}
       </div>
     );
