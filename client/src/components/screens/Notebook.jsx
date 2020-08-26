@@ -3,13 +3,16 @@ import { getUserPoems } from "../../services/poem-helpers";
 import Poems from "../widgets/Poems"
 import PoemsLiked from "../widgets/PoemsLiked"
 import { getLikes } from "../../services/like-helpers"
+import styles from '../../styles/Notebook.module.css'
 
 class Notebook extends Component {
   constructor(props) {
     super(props);
     this.state = {
       poems: [],
-      likes: []
+      likes: [],
+      myPoems: true,
+      likedPoems: false
     };
   }
 
@@ -22,14 +25,23 @@ class Notebook extends Component {
     });
   };
 
+  togglePoems = (tab) => {
+    this.setState({
+      myPoems: false,
+      likedPoems: false
+    })
+    this.setState(prevState => ({
+      [tab]: !prevState[tab]
+    }))
+  }
 
   render() {
+    const { myPoems } = this.state
     const poems = (
       this.state.poems.length === 0
         ? ""
         :
         <div>
-          <h1>My Poems</h1>
           <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
         </div>
     )
@@ -38,14 +50,38 @@ class Notebook extends Component {
         ? ""
         :
         <div>
-          <h1>Poems That I Like</h1>
           <PoemsLiked likes={this.state.likes} currentUser={this.props.currentUser} />
         </div>
     )
     return (
-      <div className="notebook">
-        {poems}
-        {likes}
+      <div >
+        <div className={styles.btnWrapper}>
+          <button
+            id={styles.leftBtn}
+            className={styles.notebookBtn}
+            style={myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
+            onClick={() => this.togglePoems('myPoems')}
+          >
+            My Poems
+          </button>
+          <button
+            id={styles.rightBtn}
+            className={styles.notebookBtn}
+            style={!myPoems ? { backgroundColor: "#0082E3"} : { backgroundColor: "#FFF", color: "#0082E3"  }}
+            onClick={() => this.togglePoems('likedPoems')}
+          >
+            Liked Poems
+          </button>
+        </div>
+        {myPoems ?
+          <>
+            {poems}
+          </>
+          :
+          <>
+            {likes}
+          </>
+        }
       </div>
     );
   }

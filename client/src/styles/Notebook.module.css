@@ -1,0 +1,22 @@
+.btnWrapper{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px
+}
+
+.notebookBtn{
+  border: #0082E3 solid 2px;
+  width: 125px;
+  height: 40px;
+  font-size: 14px;
+  color: #FFF
+}
+
+#leftBtn{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#rightBtn{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
