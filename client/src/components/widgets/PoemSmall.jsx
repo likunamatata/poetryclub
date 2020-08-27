@@ -49,7 +49,7 @@ export default class PoemSmall extends Component {
 
     const first_line = parsed_text ? parsed_text.blocks[0].text : ''
 
-    console.log(poem)
+
     return (
       <div className={styles.poem}>
         <Link to={`/poems/${poem.id}`}>
