@@ -65,7 +65,7 @@ class Feed extends Component {
     return (
       <div className={styles.container}>
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
-        <Sort handleSort={this.handleSort}/>
+      
         {poems}
       </div>
     );
