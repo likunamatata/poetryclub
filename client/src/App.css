@@ -33,8 +33,15 @@ body{
 fill: blue;
 }
 
+.logout-container{
+  text-align: right;
+  margin: 10px;
+}
+
 .logout{
-  margin: 0px 0px 10px 0px;
+
+  text-align: right;
+  color: blue;
 }
 
 a{
