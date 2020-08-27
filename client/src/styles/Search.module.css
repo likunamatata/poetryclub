@@ -11,19 +11,11 @@
   height: 30px;
   padding: 5px;
   text-align: center;
+  background-image: url('../images/magnify-icon.svg');
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: 3% 63%; 
 }
-
-/* .submit{
-  width: 160px;
-  height: 48px;
-  border-radius: 90px;
-  margin: 30px 0 20px 0;
-  background-color: #0082E3;
-  border: #0082E3 solid 1px;
-  font-size: 18px;
-  color: #FFFFFF;
-  cursor: pointer
-} */
 
 .submit{
   background: #FFFFFF;
@@ -40,3 +32,4 @@
   margin: 40px 0 30px 0;
   cursor: pointer;
 }
+
