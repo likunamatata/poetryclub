@@ -44,7 +44,6 @@ class Feed extends Component {
     this.setState({
       poems: res.data,
     });
-    console.log(this.state.poems)
   };
 
   render() {
