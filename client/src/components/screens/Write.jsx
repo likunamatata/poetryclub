@@ -56,7 +56,7 @@ class Write extends Component {
           value={this.state.poem.title}
           name="title"
           type="text"
-          placeholder="Title Goes Here..."
+          placeholder="Title"
           onChange={this.handleChange}
         />
         {console.log(this.state.poem)}
@@ -64,9 +64,8 @@ class Write extends Component {
           editorState={this.state.editorState}
           onChange={this.onChange}
           ref={this.setDomEditorRef}
-          placeholder="Tell us your poem..."
         />
-        <button onClick={this.onSubmit}>Submit</button>
+        <button className="submit" onClick={this.onSubmit}>Submit</button>
       </div>
     );
   }
