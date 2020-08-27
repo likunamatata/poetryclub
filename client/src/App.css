@@ -42,9 +42,11 @@ fill: blue;
 }
 
 .logout{
-
-  text-align: right;
-  color: blue;
+  border: none;
+  background-color: white;
+  color: #0082E3;
+  font-family: 'Courier Prime', monospace;
+  font-weight: bold;
 }
 
 a{
