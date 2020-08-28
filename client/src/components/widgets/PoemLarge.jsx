@@ -7,8 +7,10 @@ import { Twitter, Facebook, Mail } from 'react-social-sharing'
 export default class PoemLarge extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    console.log(props)
+    this.state = {
+      likes: "",
+      heartClass: styles.unliked,
+    };
   }
 
   componentDidMount = async () => {
@@ -16,13 +18,12 @@ export default class PoemLarge extends Component {
     this.setState({
       poem: res.data
     });
-    this.displayLikes()
+    this.displayLikes();
   };
 
   displayLikes = async () => {
-    const { poem_id, currentUser_id } = this.props;
-    console.log(poem_id, currentUser_id);
-    const response = await getPoemLikes(currentUser_id, poem_id);
+    const { poem_id, currentUser } = this.props;
+    const response = await getPoemLikes(currentUser, poem_id);
     this.setState({
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
@@ -38,9 +39,9 @@ export default class PoemLarge extends Component {
   };
 
   render() {
-    console.log(this.state)
-    const { currentUser_id, poem_id } = this.props;
+    const { currentUser, poem_id } = this.props;
     const { heartClass, likes } = this.state;
+  
     const { title, username, id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     try {
@@ -57,7 +58,6 @@ export default class PoemLarge extends Component {
       <div className={styles.poem}>
 
         <div className= {styles.social}>
-          {console.log(this.state.poem)}
           <Twitter
             solid small
             link={`https://poetryclub.surge.sh/poems/${id}`}
@@ -79,7 +79,7 @@ export default class PoemLarge extends Component {
           <svg className={styles.svg}>
             <path
               className={heartClass}
-              onClick={() => this.likeAndUpdate(currentUser_id, poem_id)}
+              onClick={() => this.likeAndUpdate(currentUser.id, poem_id)}
               d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
             />
           </svg>

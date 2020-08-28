@@ -9,6 +9,7 @@ import Search from "./screens/Search";
 import PoemLarge from "./widgets/PoemLarge";
 
 function UserScreens(props) {
+  const currentUser= props.currentUser
   return (
     <div className="user-screens">
       <Route
@@ -48,7 +49,7 @@ function UserScreens(props) {
         path="/poems/:poem_id"
         render={(props) => {
           const { poem_id } = props.match.params;
-          return <PoemLarge poem_id={poem_id} history={props.history} currentUser_id={props.currentUser} />;
+          return <PoemLarge poem_id={poem_id} history={props.history} currentUser={currentUser} />;
         }}
       />
     </div>
