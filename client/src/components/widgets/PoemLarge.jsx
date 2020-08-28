@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
 import { likePoem, getPoemLikes } from "../../services/like-helpers";
-import { Twitter, Facebook, Mail } from 'react-social-sharing'
+import { Twitter, Facebook, Mail } from "react-social-sharing";
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class PoemLarge extends Component {
   componentDidMount = async () => {
     const res = await getOnePoem(this.props.poem_id);
     this.setState({
-      poem: res.data
+      poem: res.data,
     });
     this.displayLikes();
   };
@@ -41,7 +41,7 @@ export default class PoemLarge extends Component {
   render() {
     const { currentUser, poem_id } = this.props;
     const { heartClass, likes } = this.state;
-  
+
     const { title, username, id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     try {
@@ -50,40 +50,50 @@ export default class PoemLarge extends Component {
       parsed_text = this.state.poem ? this.state.poem.text : "";
     }
 
-    const lines = !parsed_text ? '' : parsed_text.blocks.map((line, index) => {
-      return <p key={index} className={styles.poemLine}>{line.text}</p>
-    })
+    const lines = !parsed_text
+      ? ""
+      : parsed_text.blocks.map((line, index) => {
+          return (
+            <p key={index} className={styles.poemLine}>
+              {line.text}
+            </p>
+          );
+        });
 
     return (
       <div className={styles.poem}>
-
-        <div className= {styles.social}>
-          <Twitter
-            solid small
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
-          <Facebook
-            solid small
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
-          <Mail
-            solid small
-            link={`https://poetryclub.surge.sh/poems/${id}`}
-          />
-        </div>
-
         <h1>{title}</h1>
         <p>{username}</p>
         {lines}
-        <div className={styles.like}>
-          <svg className={styles.svg}>
-            <path
-              className={heartClass}
-              onClick={() => this.likeAndUpdate(currentUser.id, poem_id)}
-              d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+        <div className={styles.poemButtons}>
+  
+          <div className={styles.social}>
+            <Twitter 
+              solid
+              small
+              link={`https://poetryclub.surge.sh/poems/${id}`}
             />
-          </svg>
-          <p className={styles.count}>{likes ? likes.count : ''}</p>
+            <Facebook
+              solid
+              small
+              link={`https://poetryclub.surge.sh/poems/${id}`}
+            />
+            <Mail
+              solid
+              small
+              link={`https://poetryclub.surge.sh/poems/${id}`}
+            />
+          </div>
+          <div className={styles.like}>
+            <svg className={styles.svg}>
+              <path
+                className={heartClass}
+                onClick={() => this.likeAndUpdate(currentUser.id, poem_id)}
+                d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+              />
+            </svg>
+            <p className={styles.count}>{likes ? likes.count : ""}</p>
+          </div>
         </div>
       </div>
     );

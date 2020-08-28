@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 export default function Header(props) {
   const logout = props.currentUser ? (
@@ -11,7 +12,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <div className="logout-container">{logout}</div>
-      <h1>The Poem Club</h1>
+      <Link to="/" className="title">The Poem Club</Link>
     </div>
   );
 }

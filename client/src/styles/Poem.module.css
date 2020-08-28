@@ -54,5 +54,18 @@
   margin: 0px;
 }
 .social{
-  text-align: right
+  text-align: right;
+  margin: 10px;
+}
+
+.poemButtons{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.social > a >div {
+  padding: 5px;
 }
