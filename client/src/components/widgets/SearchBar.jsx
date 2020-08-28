@@ -12,14 +12,13 @@ function SearchBar(props) {
             className={styles.input}
             name="keyword"
             type="text"
-            placeholder="Search"
             onChange={props.handleChange} />
           { window.location.pathname === '/search' ?
             <input className={styles.submit} type="submit" value="Search" />
             :
             null
           }
-          </form>
+        </form>
       </div>
     );
   }

@@ -33,6 +33,7 @@ class Feed extends Component {
     const poems = (this.state.poems.length === 0
       ? ""
       : <Poems poems={this.state.poems} currentUser={this.props.currentUser}/>);
+    
     return (
       <div>
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
