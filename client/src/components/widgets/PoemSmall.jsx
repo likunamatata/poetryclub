@@ -10,15 +10,29 @@ export default class PoemSmall extends Component {
       likes: "",
       heartClass: styles.unliked,
     };
-  }
+  };
 
   componentDidMount = async () => {
     this.displayLikes();
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState.heartClass, 'vs', this.state.heartClass)
+    if (prevState.heartClass !== this.state.heartClass) {
+      console.log('my like has changed.')
+    }
+  }
+
   displayLikes = async () => {
     const { poem, currentUser } = this.props;
-    const response = await getPoemLikes(currentUser.id, poem.id);
+    // This ternary checks if the server 
+    // should get and return likes from poems I like(./PoemsLiked)
+    // or poems that I wrote (./Poems)
+    const response = poem.poem_id
+      ?
+      await getPoemLikes(currentUser.id, poem.poem_id)
+      :
+      await getPoemLikes(currentUser.id, poem.id);
     this.setState({
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
@@ -26,6 +40,7 @@ export default class PoemSmall extends Component {
   };
 
   likeAndUpdate = async (user_id, poem_id) => {
+    console.log(poem_id)
     const response = await likePoem(user_id, poem_id);
     this.setState({
       likes: response.data,
@@ -52,7 +67,8 @@ export default class PoemSmall extends Component {
 
     return (
       <div className={styles.poem}>
-        <Link to={`/poems/${poem.id}`}>
+        {console.log('===>', likes)}
+        <Link to={poem.poem_id ? `/poems/${poem.poem_id}` : `/poems/${poem.id}`}>
           <p>{poem.title}</p>
           <p className={styles.poemSnippet}>{`${first_line}...`}</p>
           <p>{`By ${poem.username}`}</p>
@@ -61,7 +77,9 @@ export default class PoemSmall extends Component {
           <svg className={styles.svg}>
             <path
               className={heartClass}
-              onClick={() => this.likeAndUpdate(currentUser.id, poem.id)}
+              onClick={() => (
+                poem.poem_id ? this.likeAndUpdate(currentUser.id, poem.poem_id) : this.likeAndUpdate(currentUser.id, poem.id)
+              )}
               d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
             />
           </svg>

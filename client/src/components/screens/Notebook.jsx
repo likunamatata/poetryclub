@@ -12,7 +12,7 @@ class Notebook extends Component {
       poems: [],
       likes: [],
       myPoems: true,
-      likedPoems: false
+      // likedPoems: false
     };
   }
 
@@ -28,18 +28,18 @@ class Notebook extends Component {
   togglePoems = (tab) => {
     this.setState({
       myPoems: false,
-      likedPoems: false
+      // likedPoems: false
     })
     this.setState(prevState => ({
       [tab]: !prevState[tab]
     }))
   }
-
+  
   render() {
     const { myPoems } = this.state
     const poems = (
       this.state.poems.length === 0
-        ? ""
+        ? "write and submit a poem to add it to your notebook"
         :
         <div>
           <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
@@ -47,7 +47,7 @@ class Notebook extends Component {
     )
     const likes = (
       this.state.likes.length === 0
-        ? ""
+        ? "like a poem to have it show in your notebook"
         :
         <div>
           <PoemsLiked likes={this.state.likes} currentUser={this.props.currentUser} />
