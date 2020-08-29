@@ -8,6 +8,7 @@ import Routes from "./components/Routes";
 import Nav from "./components/Nav";
 
 import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
+import PublicScreens from "./components/PublicRoutes";
 
 class App extends Component {
   constructor(props) {
@@ -91,22 +92,16 @@ class App extends Component {
         <div className="main">
           {!this.state.currentUser ? (
             //logged out landing page
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <Landing
-                  history={this.props.history}
-                  handleLogin={this.handleLogin}
-                  loginHandleChange={this.loginHandleChange}
-                  registerHandleChange={this.registerHandleChange}
-                  loginFormData={this.state.loginFormData}
-                  registerFormData={this.state.registerFormData}
-                  currentUser={this.state.currentUser}
-                  handleRegister={this.handleRegister}
-                />
-              )}
-            />
+            <PublicScreens
+               history={this.props.history}
+               handleLogin={this.handleLogin}
+               loginHandleChange={this.loginHandleChange}
+               registerHandleChange={this.registerHandleChange}
+               loginFormData={this.state.loginFormData}
+               registerFormData={this.state.registerFormData}
+               currentUser={this.state.currentUser}
+               handleRegister={this.handleRegister}/>
+             
           ) : (
             //screens to show when logged in
             <Routes

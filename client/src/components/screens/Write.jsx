@@ -59,7 +59,7 @@ class Write extends Component {
           placeholder="Title"
           onChange={this.handleChange}
         />
-        {console.log(this.state.poem)}
+
         <Editor
           editorState={this.state.editorState}
           onChange={this.onChange}

@@ -4,7 +4,6 @@ const api = axios.create({
 })
 
 export const createPoem = async (poem) => {
-  console.log("I'm saving a poem", poem)
   try {
     const resp = await api.post(`/poems`, { poem: poem })
     return resp
