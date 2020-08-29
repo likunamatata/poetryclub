@@ -14,10 +14,10 @@ class PoemsLiked extends Component {
   render() {
 
     const { likes, currentUser } = this.props
-    console.log(currentUser)
+
 
     const likesData = likes.filter((liked) => liked.user_id === currentUser.id)
-    console.log(likesData)
+
 
     const likedPoems = likesData.map((poem, id) => {
       const textParsed = JSON.parse(poem.text).blocks[0].text

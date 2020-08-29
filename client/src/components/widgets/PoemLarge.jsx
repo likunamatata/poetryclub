@@ -10,6 +10,7 @@ export default class PoemLarge extends Component {
     this.state = {
       likes: "",
       heartClass: styles.unliked,
+      alert: ''
     };
   }
 
@@ -30,17 +31,24 @@ export default class PoemLarge extends Component {
     });
   };
 
-  likeAndUpdate = async (user_id, poem_id) => {
-    const response = await likePoem(user_id, poem_id);
-    this.setState({
-      likes: response.data,
-      heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
-    });
+  likeAndUpdate = async (user, poem_id) => {
+      const response = await likePoem(user.id, poem_id);
+      this.setState({
+        likes: response.data,
+        heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
+      });
+    
   };
+
+  askToLogin = async () => {
+    this.setState({
+      alert: <p>Gotta login first</p>
+    })
+  }
 
   render() {
     const { currentUser, poem_id } = this.props;
-    const { heartClass, likes } = this.state;
+    const { heartClass, likes, alert } = this.state;
 
     const { title, username, id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
@@ -65,6 +73,7 @@ export default class PoemLarge extends Component {
         <h1>{title}</h1>
         <p>{username}</p>
         {lines}
+        {alert}
         <div className={styles.poemButtons}>
   
           <div className={styles.social}>
@@ -88,7 +97,7 @@ export default class PoemLarge extends Component {
             <svg className={styles.svg}>
               <path
                 className={heartClass}
-                onClick={() => this.likeAndUpdate(currentUser.id, poem_id)}
+                onClick={!currentUser ? ()=> this.askToLogin() : () => this.likeAndUpdate(currentUser, poem_id)}
                 d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
               />
             </svg>
