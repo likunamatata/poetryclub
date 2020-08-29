@@ -42,7 +42,7 @@ export default class PoemLarge extends Component {
 
   askToLogin = async () => {
     this.setState({
-      alert: <p>Gotta login first</p>
+      alert: <p className={styles.alert}>Gotta login first</p>
     })
   }
 

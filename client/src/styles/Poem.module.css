@@ -69,3 +69,7 @@
 .social > a >div {
   padding: 5px;
 }
+
+.alert{
+  color: red;
+}
