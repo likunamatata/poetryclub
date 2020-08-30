@@ -16,23 +16,23 @@ export default class PoemSmall extends Component {
     this.displayLikes();
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.heartClass, 'vs', this.state.heartClass)
-    if (prevState.heartClass !== this.state.heartClass) {
-      console.log('my like has changed.')
+  componentDidUpdate = async (prevProps, prevState) => {
+    if (prevState.likes.mine !== this.state.likes.mine) {
+      this.props.poem.poem_id && this.props.getPoemsAndLikes()
     }
   }
 
   displayLikes = async () => {
     const { poem, currentUser } = this.props;
-    // This ternary checks if the server 
-    // should get and return likes from poems I like(./PoemsLiked)
+    // Ternary checks if the server 
+    // should get and return likes from poems that I like(./PoemsLiked)
     // or poems that I wrote (./Poems)
     const response = poem.poem_id
       ?
       await getPoemLikes(currentUser.id, poem.poem_id)
       :
       await getPoemLikes(currentUser.id, poem.id);
+    console.log('getting likes to be displayed')
     this.setState({
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
@@ -46,13 +46,13 @@ export default class PoemSmall extends Component {
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
     });
+    console.log("like updated")
   };
 
   render() {
     const { poem, currentUser } = this.props;
     const { likes, heartClass } = this.state;
     const { text } = poem;
-
 
     let parsed_text = null;
 
@@ -67,7 +67,7 @@ export default class PoemSmall extends Component {
 
     return (
       <div className={styles.poem}>
-        {console.log('===>', likes)}
+        {console.log('===>rendered likes obj', likes)}
         <Link to={poem.poem_id ? `/poems/${poem.poem_id}` : `/poems/${poem.id}`}>
           <p>{poem.title}</p>
           <p className={styles.poemSnippet}>{`${first_line}...`}</p>

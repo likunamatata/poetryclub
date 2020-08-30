@@ -12,34 +12,36 @@ class Notebook extends Component {
       poems: [],
       likes: [],
       myPoems: true,
-      // likedPoems: false
     };
   }
 
   componentDidMount = async () => {
+    this.getPoemsAndLikes()
+  };
+
+  getPoemsAndLikes = async () => {
     const userPoems = await getUserPoems(this.props.currentUser.id);
     const userLikes = await getLikes()
     this.setState({
       poems: userPoems,
       likes: userLikes
     });
-  };
+  }
 
   togglePoems = (tab) => {
     this.setState({
       myPoems: false,
-      // likedPoems: false
     })
     this.setState(prevState => ({
       [tab]: !prevState[tab]
     }))
   }
-  
+
   render() {
     const { myPoems } = this.state
     const poems = (
       this.state.poems.length === 0
-        ? "write and submit a poem to add it to your notebook"
+        ? ""
         :
         <div>
           <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
@@ -47,15 +49,16 @@ class Notebook extends Component {
     )
     const likes = (
       this.state.likes.length === 0
-        ? "like a poem to have it show in your notebook"
+        ? ""
         :
         <div>
-          <PoemsLiked likes={this.state.likes} currentUser={this.props.currentUser} />
+          <PoemsLiked likes={this.state.likes} currentUser={this.props.currentUser} getPoemsAndLikes={this.getPoemsAndLikes} />
         </div>
     )
     return (
       <div >
         <div className={styles.btnWrapper}>
+          {console.log('->', this.state.likes, '<-notebook.')}
           <button
             id={styles.leftBtn}
             className={styles.notebookBtn}
@@ -67,7 +70,7 @@ class Notebook extends Component {
           <button
             id={styles.rightBtn}
             className={styles.notebookBtn}
-            style={!myPoems ? { backgroundColor: "#0082E3"} : { backgroundColor: "#FFF", color: "#0082E3"  }}
+            style={!myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
             onClick={() => this.togglePoems('likedPoems')}
           >
             Liked Poems
