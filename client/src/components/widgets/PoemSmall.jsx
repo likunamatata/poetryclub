@@ -32,7 +32,6 @@ export default class PoemSmall extends Component {
       await getPoemLikes(currentUser.id, poem.poem_id)
       :
       await getPoemLikes(currentUser.id, poem.id);
-    console.log('getting likes to be displayed')
     this.setState({
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
@@ -40,7 +39,6 @@ export default class PoemSmall extends Component {
   };
 
   likeAndUpdate = async (user_id, poem_id) => {
-    console.log(poem_id)
     const response = await likePoem(user_id, poem_id);
     this.setState({
       likes: response.data,
@@ -67,7 +65,6 @@ export default class PoemSmall extends Component {
 
     return (
       <div className={styles.poem}>
-        {console.log('===>rendered likes obj', likes)}
         <Link to={poem.poem_id ? `/poems/${poem.poem_id}` : `/poems/${poem.id}`}>
           <p>{poem.title}</p>
           <p className={styles.poemSnippet}>{`${first_line}...`}</p>

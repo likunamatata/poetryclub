@@ -13,10 +13,15 @@ function UserScreens(props) {
   return (
     <div className="user-screens">
       <Route
-        exact
+        exact 
         path="/"
         render={() => (
-          <Feed currentUser={props.currentUser} history={props.history} />
+          <Feed
+            currentUser={props.currentUser}
+            history={props.history}
+            submitted={props.submitted}
+            updateSubmittedState={props.updateSubmittedState}
+          />
         )}
       />
 
@@ -33,7 +38,11 @@ function UserScreens(props) {
         exact
         path="/write"
         render={() => (
-          <Write currentUser={props.currentUser} history={props.history} />
+          <Write
+            currentUser={props.currentUser}
+            history={props.history}
+            updateSubmittedState={props.updateSubmittedState}
+          />
         )}
       />
       <Route

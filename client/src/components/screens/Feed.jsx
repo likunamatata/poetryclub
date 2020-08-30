@@ -35,24 +35,36 @@ class Feed extends Component {
         poems: response.data,
       });
     }
- 
+
   };
 
 
   componentDidMount = async () => {
+    this.getPoems()
+  };
+
+  componentDidUpdate = () => {
+    // componentDidUpdate needs a conditional that tests a change in a value.
+    // If that value changes, then it will run/update
+    if (this.props.submitted) {
+      this.getPoems()
+      this.props.updateSubmittedState() //turns submitted to 'false'
+    }
+  }
+  getPoems = async () => {
     const res = await getAllPoems();
     this.setState({
       poems: res.data,
     });
-  };
+  }
 
   render() {
     const poems =
       this.state.poems.length === 0 ? (
         ""
       ) : (
-        <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
-      );
+          <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
+        );
     return (
       <div className={styles.container}>
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
