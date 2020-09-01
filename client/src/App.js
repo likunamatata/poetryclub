@@ -14,6 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      submitted: false,
       currentUser: null,
       registerFormData: {
         username: "",
@@ -25,6 +26,11 @@ class App extends Component {
         password: ""
       },
     };
+  }
+  // -------------- FOR RENDERING THE FEED ON NEW POEM SUBMISSION ------------------ //
+
+  updateSubmittedState = () => {
+    this.setState({ submitted: !this.state.submitted })
   }
 
   // -------------- AUTH ------------------ //
@@ -91,24 +97,26 @@ class App extends Component {
         />
         <div className="main">
           {!this.state.currentUser ? (
-            //logged out landing page
+            //logged out landing page 
             <PublicScreens
-               history={this.props.history}
-               handleLogin={this.handleLogin}
-               loginHandleChange={this.loginHandleChange}
-               registerHandleChange={this.registerHandleChange}
-               loginFormData={this.state.loginFormData}
-               registerFormData={this.state.registerFormData}
-               currentUser={this.state.currentUser}
-               handleRegister={this.handleRegister}/>
-             
-          ) : (
-            //screens to show when logged in
-            <Routes
               history={this.props.history}
+              handleLogin={this.handleLogin}
+              loginHandleChange={this.loginHandleChange}
+              registerHandleChange={this.registerHandleChange}
+              loginFormData={this.state.loginFormData}
+              registerFormData={this.state.registerFormData}
               currentUser={this.state.currentUser}
-            />
-          )}
+              handleRegister={this.handleRegister} />
+
+          ) : (
+              //screens to show when logged in
+              <Routes
+                history={this.props.history}
+                currentUser={this.state.currentUser}
+                submitted={this.state.submitted}
+                updateSubmittedState={this.updateSubmittedState}
+              />
+            )}
         </div>
         {!this.state.currentUser ? "" : <Nav />}
       </div>

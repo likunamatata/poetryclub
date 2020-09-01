@@ -19,9 +19,10 @@ class Write extends Component {
     this.setDomEditorRef = ref => this.domEditor = ref;
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.domEditor.focus()
   }
+
 
   handleChange = (event) => {
     const updatedField = { [event.target.name]: event.target.value };
@@ -41,8 +42,8 @@ class Write extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     createPoem(this.state.poem);
+    this.props.updateSubmittedState() //turns submitted to 'true'
     this.props.history.push('/')
-    window.location.reload()
   };
 
   render() {
