@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PoemSmall from "./PoemSmall";
 import styles from '../../styles/PoemsContainer.module.css'
 
-class Poems extends Component {
+class Poems extends Component { 
   constructor(props) {
     super(props);
     this.state = {
