@@ -25,7 +25,7 @@ export const getOnePoem = async (poem_id) => {
   try {
     const resp = await api.get(`/poems/${poem_id}`)
     return resp
-  } catch (error) {
+  } catch (error) { 
     throw error
   }
 }
@@ -40,6 +40,7 @@ export const getUserPoems = async (user_id) => {
 }
 
 export const getSomePoems = async (keyword) => {
+  console.log(keyword)
   try {
     const resp = await api.get(`/poems/search/${keyword}`)
     return resp

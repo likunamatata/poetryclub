@@ -49,7 +49,7 @@ class PoemsController < ApplicationController
 
   def search_poems
     print params[:keyword]
-    @poems = Poem.where("title LIKE ? OR text LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    @poems = Poem.where("title LIKE ? OR text LIKE ? OR username LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%" ,"%#{params[:keyword]}%")
     render json:@poems
   end
 
