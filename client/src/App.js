@@ -93,22 +93,22 @@ class App extends Component {
           {!this.state.currentUser ? (
             //logged out landing page
             <PublicScreens
-               history={this.props.history}
-               handleLogin={this.handleLogin}
-               loginHandleChange={this.loginHandleChange}
-               registerHandleChange={this.registerHandleChange}
-               loginFormData={this.state.loginFormData}
-               registerFormData={this.state.registerFormData}
-               currentUser={this.state.currentUser}
-               handleRegister={this.handleRegister}/>
-             
-          ) : (
-            //screens to show when logged in
-            <Routes
               history={this.props.history}
+              handleLogin={this.handleLogin}
+              loginHandleChange={this.loginHandleChange}
+              registerHandleChange={this.registerHandleChange}
+              loginFormData={this.state.loginFormData}
+              registerFormData={this.state.registerFormData}
               currentUser={this.state.currentUser}
-            />
-          )}
+              handleRegister={this.handleRegister} />
+
+          ) : (
+              //screens to show when logged in
+              <Routes
+                history={this.props.history}
+                currentUser={this.state.currentUser}
+              />
+            )}
         </div>
         {!this.state.currentUser ? "" : <Nav />}
       </div>
