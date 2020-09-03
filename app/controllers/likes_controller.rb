@@ -52,7 +52,7 @@ class LikesController < ApplicationController
       poems.username,
       poems.title,
       poems.text"
-    )
+    ).order("likes.id").reverse_order
     render json: @likes
   end
 
