@@ -26,6 +26,12 @@ div.DraftEditor-root {
   letter-spacing: 2px
 }
 
+.submit{
+  align-self: flex-end;
+  height: 55px
+}
+
+/* STYLE FOR OLD SUBMIT BUTTON */
 /* .submit{
   background: #FFFFFF;
   border: 1px solid #000000;
