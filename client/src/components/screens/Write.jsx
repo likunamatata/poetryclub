@@ -18,7 +18,7 @@ class Write extends Component {
     };
     this.setDomEditorRef = ref => this.domEditor = ref;
   }
-
+  // FOR CURSOR ON EDITOR
   componentDidMount() {
     this.domEditor.focus()
   }
@@ -57,13 +57,14 @@ class Write extends Component {
           name="title"
           type="text"
           placeholder="Title"
+          ref={this.setDomEditorRef}
           onChange={this.handleChange}
         />
 
         <Editor
           editorState={this.state.editorState}
           onChange={this.onChange}
-          ref={this.setDomEditorRef}
+          placeholder="Body"
         />
         <button className="submit" onClick={this.onSubmit}>Submit</button>
       </div>
