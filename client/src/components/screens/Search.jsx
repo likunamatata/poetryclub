@@ -14,19 +14,7 @@ class Feed extends Component {
 
   }
 
-  // handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
 
-  // handleSearch = async () => {
-  //   const res = await getSomePoems(this.state.keyword);
-  //   this.setState({
-  //     poems: res.data,
-  //   });
-  // };
 
   handleSearch = async () => {
     const res = await getSomePoems(this.state.keyword);
@@ -39,7 +27,7 @@ class Feed extends Component {
     const { name, value } = e.target;
     if (value !== '') {
       this.setState({
-        [name]: value,
+        [name]: value.toLowerCase(),
       }, this.handleSearch);
     } else {
       this.setState({ poems: []})
