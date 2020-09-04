@@ -3,7 +3,7 @@ class PoemsController < ApplicationController
 
   # GET /poems
   def index
-    @poems = Poem.all
+    @poems = Poem.all.order(:id).reverse_order
 
     render json: @poems
   end
@@ -43,7 +43,7 @@ class PoemsController < ApplicationController
   # GET /users/1/poems
 
   def user_poems
-    @poems = Poem.where(user_id: params[:user_id])
+    @poems = Poem.where(user_id: params[:user_id]).order(:id).reverse_order
     render json:@poems
   end
 

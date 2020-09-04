@@ -62,7 +62,9 @@ class Notebook extends Component {
           <button
             id={styles.leftBtn}
             className={styles.notebookBtn}
-            style={myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
+            // BLUE STYLE
+            // style={myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
+            style={myPoems ? { backgroundColor: "#8E8E93" } : { backgroundColor: "#FFF", color: "#8E8E93" }}
             onClick={() => this.togglePoems('myPoems')}
           >
             My Poems
@@ -70,7 +72,9 @@ class Notebook extends Component {
           <button
             id={styles.rightBtn}
             className={styles.notebookBtn}
-            style={!myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
+            // BLUE STYLE
+            // style={!myPoems ? { backgroundColor: "#0082E3" } : { backgroundColor: "#FFF", color: "#0082E3" }}
+            style={!myPoems ? { backgroundColor: "#8E8E93" } : { backgroundColor: "#FFF", color: "#8E8E93" }}
             onClick={() => this.togglePoems('likedPoems')}
           >
             Liked Poems
