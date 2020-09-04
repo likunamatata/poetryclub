@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getAllPoems, getSomePoems } from "../../services/poem-helpers";
 import Poems from "../widgets/Poems";
 import styles from "../../styles/PoemsContainer.module.css";
-import SearchBar from "../widgets/SearchBar";
+// import SearchBar from "../widgets/SearchBar";
 
 
 class Feed extends Component {
@@ -14,29 +14,30 @@ class Feed extends Component {
     };
   }
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
-  };
+  //OLD SEARCH OPTION ON FEED 
+  // handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // };
 
-  handleSearch = async () => {
-    const { keyword } = this.state
-    if (keyword === '') {
-      const res = await getAllPoems();
-      this.setState({
-        poems: res.data,
-      });
-    }
-    else {
-      const response = await getSomePoems(keyword);
-      this.setState({
-        poems: response.data,
-      });
-    }
+  // handleSearch = async () => {
+  //   const { keyword } = this.state
+  //   if (keyword === '') {
+  //     const res = await getAllPoems();
+  //     this.setState({
+  //       poems: res.data,
+  //     });
+  //   }
+  //   else {
+  //     const response = await getSomePoems(keyword);
+  //     this.setState({
+  //       poems: response.data,
+  //     });
+  //   }
 
-  };
+  // };
 
 
   componentDidMount = async () => {
@@ -67,7 +68,8 @@ class Feed extends Component {
         );
     return (
       <div className={styles.container}>
-        <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
+        {/* OLD SEARCH OPTION ON FEED  */}
+        {/* <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} /> */}
         {poems}
       </div>
     );

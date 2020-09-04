@@ -13,11 +13,12 @@ function SearchBar(props) {
             name="keyword"
             type="text"
             onChange={props.handleChange} />
-          { window.location.pathname === '/search' ?
-            <input className={styles.submit} type="submit" value="Search" />
-            :
+          {/* TERNARY IF WE DECIDE THE SEARCH SHOULD GO BACK ON THE FEED */}
+          {/* { window.location.pathname === '/search' ? */}
+            <button className={styles.submit} type="submit">Search</button>
+            {/* :
             null
-          }
+          } */}
         </form>
       </div>
     );

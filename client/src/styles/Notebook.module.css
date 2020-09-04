@@ -5,7 +5,9 @@
 }
 
 .notebookBtn{
-  border: #0082E3 solid 2px;
+  /* Blue Style */
+  /* border: #0082E3 solid 2px; */
+  border: #8E8E93 solid 2px;
   width: 125px;
   height: 40px;
   font-size: 14px;

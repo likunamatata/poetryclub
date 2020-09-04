@@ -27,6 +27,12 @@ div.DraftEditor-root {
 }
 
 .submit{
+  align-self: flex-end;
+  height: 55px
+}
+
+/* STYLE FOR OLD SUBMIT BUTTON */
+/* .submit{
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -39,5 +45,5 @@ div.DraftEditor-root {
   width: 178px;
   height: 54px;
   cursor: pointer
-}
+} */
 
