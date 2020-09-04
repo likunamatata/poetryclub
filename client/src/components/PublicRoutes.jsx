@@ -7,30 +7,30 @@ import PoemLarge from "./widgets/PoemLarge";
 import Landing from "./Landing"
 
 function PublicScreens(props) {
-  const currentUser= props.currentUser
+  const currentUser = props.currentUser
   return (
-    <div>
+    <div >
 
       {/* Feed */}
-       
+
       {/* Search */}
       <Route
-              exact
-              path="/"
-              render={() => (
-                <Landing
-                  history={props.history}
-                  handleLogin={props.handleLogin}
-                  loginHandleChange={props.loginHandleChange}
-                  registerHandleChange={props.registerHandleChange}
-                  loginFormData={props.loginFormData}
-                  registerFormData={props.registerFormData}
-                  currentUser={props.currentUser}
-                  handleRegister={props.handleRegister}
-                />
-              )}
+        exact
+        path="/"
+        render={() => (
+          <Landing
+            history={props.history}
+            handleLogin={props.handleLogin}
+            loginHandleChange={props.loginHandleChange}
+            registerHandleChange={props.registerHandleChange}
+            loginFormData={props.loginFormData}
+            registerFormData={props.registerFormData}
+            currentUser={props.currentUser}
+            handleRegister={props.handleRegister}
+          />
+        )}
       />
-      
+
       <Route
         exact
         path="/poems/:poem_id"
