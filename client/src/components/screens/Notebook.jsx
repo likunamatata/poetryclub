@@ -58,6 +58,7 @@ class Notebook extends Component {
     return (
       <div >
         <div className={styles.btnWrapper}>
+          {console.log('->', this.state.likes, '<-notebook.')}
           <button
             id={styles.leftBtn}
             className={styles.notebookBtn}

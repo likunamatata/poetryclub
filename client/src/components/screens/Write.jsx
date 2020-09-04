@@ -18,11 +18,11 @@ class Write extends Component {
     };
     // this.setDomEditorRef = ref => this.domEditor = ref;
 
-  }
   // FOR CURSOR ON EDITOR
   // componentDidMount(){
   //   this.domEditor.focus()
   // }
+
 
 
   handleChange = (event) => {
