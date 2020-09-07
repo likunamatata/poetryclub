@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import "./App.css";
-
-import Landing from "./components/Landing";
 import Header from "./components/Header";
 import Routes from "./components/Routes";
 import Nav from "./components/Nav";
 
 import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
+import PublicScreens from "./components/PublicRoutes";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      submitted: false,
       currentUser: null,
       registerFormData: {
         username: "",
@@ -25,16 +25,23 @@ class App extends Component {
       },
     };
   }
+  // -------------- FOR RENDERING THE FEED ON NEW POEM SUBMISSION ------------------ //
+
+  updateSubmittedState = () => {
+    this.setState({ submitted: !this.state.submitted })
+  }
 
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.loginFormData);
+    console.log('handlelogin', currentUser)
     this.setState({ currentUser });
   };
 
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.registerFormData);
+    console.log('handleregister', currentUser)
     this.setState({ currentUser });
     this.props.history.push("/welcome");
   };
@@ -44,6 +51,7 @@ class App extends Component {
     this.setState({
       currentUser: null,
     });
+    console.log('handlelogout', this.state.currentUser)
     this.props.history.push("/");
   };
 
@@ -90,30 +98,26 @@ class App extends Component {
         />
         <div className="main">
           {!this.state.currentUser ? (
-            //logged out landing page
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <Landing
-                  history={this.props.history}
-                  handleLogin={this.handleLogin}
-                  loginHandleChange={this.loginHandleChange}
-                  registerHandleChange={this.registerHandleChange}
-                  loginFormData={this.state.loginFormData}
-                  registerFormData={this.state.registerFormData}
-                  currentUser={this.state.currentUser}
-                  handleRegister={this.handleRegister}
-                />
-              )}
-            />
-          ) : (
-            //screens to show when logged in
-            <Routes
+            //logged out landing page 
+            <PublicScreens
               history={this.props.history}
+              handleLogin={this.handleLogin}
+              loginHandleChange={this.loginHandleChange}
+              registerHandleChange={this.registerHandleChange}
+              loginFormData={this.state.loginFormData}
+              registerFormData={this.state.registerFormData}
               currentUser={this.state.currentUser}
-            />
-          )}
+              handleRegister={this.handleRegister} />
+
+          ) : (
+              //screens to show when logged in
+              <Routes
+                history={this.props.history}
+                currentUser={this.state.currentUser}
+                submitted={this.state.submitted}
+                updateSubmittedState={this.updateSubmittedState}
+              />
+            )}
         </div>
         {!this.state.currentUser ? "" : <Nav />}
       </div>

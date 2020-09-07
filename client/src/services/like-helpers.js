@@ -21,3 +21,11 @@ export const getPoemLikes = async (user_id, poem_id) => {
   }
 }
 
+export const getLikes = async () => {
+  try {
+    const resp = await api.get(`/likes/`)
+    return resp.data
+  } catch (e) {
+    throw e
+  }
+}

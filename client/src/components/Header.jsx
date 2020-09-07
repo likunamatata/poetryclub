@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 export default function Header(props) {
-  const logout = props.currentUser ?  <button className='logout' onClick={props.handleLogout}>Logout</button> : ''
+  const logout = props.currentUser ? (
+    <button className="logout" onClick={props.handleLogout}>
+      Logout
+    </button>
+  ) : (
+    ""
+  );
   return (
     <div className="header">
-      <h1>The Poem Club</h1>
-      {logout}
+      <div className="logout-container">{logout}</div>
+      <Link to="/" className="title">The Poem Club</Link>
     </div>
   );
 }

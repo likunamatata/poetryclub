@@ -4,7 +4,6 @@ const api = axios.create({
 })
 
 export const createPoem = async (poem) => {
-  console.log("I'm saving a poem", poem)
   try {
     const resp = await api.post(`/poems`, { poem: poem })
     return resp
@@ -26,7 +25,7 @@ export const getOnePoem = async (poem_id) => {
   try {
     const resp = await api.get(`/poems/${poem_id}`)
     return resp
-  } catch (error) {
+  } catch (error) { 
     throw error
   }
 }
@@ -34,13 +33,14 @@ export const getOnePoem = async (poem_id) => {
 export const getUserPoems = async (user_id) => {
   try {
     const resp = await api.get(`/users/${user_id}/poems`)
-    return resp
+    return resp.data
   } catch (error) {
     throw error
   }
 }
 
 export const getSomePoems = async (keyword) => {
+  console.log(keyword)
   try {
     const resp = await api.get(`/poems/search/${keyword}`)
     return resp

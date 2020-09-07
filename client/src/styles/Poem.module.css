@@ -12,28 +12,25 @@
 }
 
 .svg{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px;
+  margin: 0px 15px 15px 0px;
+  overflow: visible;
 }
 
 .liked{
   fill: #b54c50;
   stroke: #b54c50;
   stroke-width: 2px;
-  width: 18px;
-  height: 20px;
 }
 
 .unliked{
   fill: white;
   stroke: black;
   stroke-width: 2px;
-  width: 18px;
-  height: 20px;
 }
 
 .button{
@@ -55,4 +52,20 @@
 .poemLine{
   min-height: 15px;
   margin: 0px;
+}
+.social{
+  text-align: right;
+  margin: 10px;
+}
+
+.poemButtons{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.social > a >div {
+  padding: 5px;
 }

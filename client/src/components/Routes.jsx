@@ -9,13 +9,19 @@ import Search from "./screens/Search";
 import PoemLarge from "./widgets/PoemLarge";
 
 function UserScreens(props) {
+  const { currentUser } = props
   return (
     <div className="user-screens">
       <Route
-        exact
+        exact 
         path="/"
         render={() => (
-          <Feed currentUser={props.currentUser} history={props.history} />
+          <Feed
+            currentUser={props.currentUser}
+            history={props.history}
+            submitted={props.submitted}
+            updateSubmittedState={props.updateSubmittedState}
+          />
         )}
       />
 
@@ -32,7 +38,11 @@ function UserScreens(props) {
         exact
         path="/write"
         render={() => (
-          <Write currentUser={props.currentUser} history={props.history} />
+          <Write
+            currentUser={props.currentUser}
+            history={props.history}
+            updateSubmittedState={props.updateSubmittedState}
+          />
         )}
       />
       <Route
@@ -48,7 +58,7 @@ function UserScreens(props) {
         path="/poems/:poem_id"
         render={(props) => {
           const { poem_id } = props.match.params;
-          return <PoemLarge poem_id={poem_id} history={props.history} />;
+          return <PoemLarge poem_id={poem_id} history={props.history} currentUser={currentUser} />;
         }}
       />
     </div>

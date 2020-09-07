@@ -7,7 +7,7 @@ body{
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
-  height: 70vh;
+  height: 80vh;
   padding: 30px;
 }
 
@@ -20,21 +20,38 @@ body{
   text-align: center;
 }
 
+.title{
+  font-size: 22px;
+}
+
+
 .nav{
   height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: white;
 }
 
 .nav:focus > a > svg > path{
 fill: blue;
 }
 
+.logout-container{
+  text-align: right;
+  margin: 10px;
+}
+
 .logout{
-  margin: 0px 0px 10px 0px;
+  border: none;
+  background-color: white;
+  color: #0082E3;
+  font-family: 'Courier Prime', monospace;
+  font-weight: bold;
 }
 
 a{

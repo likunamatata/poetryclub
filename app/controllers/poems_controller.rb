@@ -3,7 +3,7 @@ class PoemsController < ApplicationController
 
   # GET /poems
   def index
-    @poems = Poem.all
+    @poems = Poem.all.order(:id).reverse_order
 
     render json: @poems
   end
@@ -43,13 +43,20 @@ class PoemsController < ApplicationController
   # GET /users/1/poems
 
   def user_poems
-    @poems = Poem.where(user_id: params[:user_id])
+    @poems = Poem.where(user_id: params[:user_id]).order(:id).reverse_order
     render json:@poems
   end
 
   def search_poems
     print params[:keyword]
-    @poems = Poem.where("title LIKE ? OR text LIKE ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    @poems = Poem.where(
+      "LOWER(title) LIKE ? 
+      OR LOWER(text) LIKE ? 
+      OR LOWER(username) LIKE ?", 
+      "%#{params[:keyword]}%", 
+      "%#{params[:keyword]}%",
+      "%#{params[:keyword]}%"
+    )
     render json:@poems
   end
 
