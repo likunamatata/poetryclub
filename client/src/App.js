@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import "./App.css";
-
-import Landing from "./components/Landing";
 import Header from "./components/Header";
 import Routes from "./components/Routes";
 import Nav from "./components/Nav";
@@ -36,12 +34,14 @@ class App extends Component {
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.loginFormData);
+    console.log('handlelogin', currentUser)
     this.setState({ currentUser });
   };
 
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.registerFormData);
+    console.log('handleregister', currentUser)
     this.setState({ currentUser });
     this.props.history.push("/welcome");
   };
@@ -51,6 +51,7 @@ class App extends Component {
     this.setState({
       currentUser: null,
     });
+    console.log('handlelogout', this.state.currentUser)
     this.props.history.push("/");
   };
 

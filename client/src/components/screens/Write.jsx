@@ -16,6 +16,7 @@ class Write extends Component {
         poem_json: {},
       },
     };
+  }
     // this.setDomEditorRef = ref => this.domEditor = ref;
 
   // FOR CURSOR ON EDITOR
@@ -47,9 +48,7 @@ class Write extends Component {
     this.props.history.push('/')
   };
 
-  render() {
-
-
+  render(){
 
     return (
       <div className='write'>

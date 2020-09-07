@@ -44,7 +44,6 @@ export default class PoemSmall extends Component {
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,
     });
-    console.log("like updated")
   };
 
   render() {

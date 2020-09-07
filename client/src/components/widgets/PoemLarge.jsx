@@ -15,16 +15,16 @@ export default class PoemLarge extends Component {
   }
 
   componentDidMount = async () => {
+    this.displayLikes();
     const res = await getOnePoem(this.props.poem_id);
     this.setState({
       poem: res.data,
     });
-    this.displayLikes();
   };
 
   displayLikes = async () => {
     const { poem_id, currentUser } = this.props;
-    const response = await getPoemLikes(currentUser, poem_id);
+    const response = await getPoemLikes(currentUser?.id, poem_id);
     this.setState({
       likes: response.data,
       heartClass: response.data.mine === 1 ? styles.liked : styles.unliked,

@@ -9,7 +9,7 @@ import Search from "./screens/Search";
 import PoemLarge from "./widgets/PoemLarge";
 
 function UserScreens(props) {
-  const currentUser= props.currentUser
+  const { currentUser } = props
   return (
     <div className="user-screens">
       <Route

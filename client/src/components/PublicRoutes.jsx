@@ -1,8 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import Feed from "./screens/Feed";
-import Notebook from "./screens/Notebook";
 import PoemLarge from "./widgets/PoemLarge";
 import Landing from "./Landing"
 

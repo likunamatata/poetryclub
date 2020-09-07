@@ -22,22 +22,22 @@ class Feed extends Component {
   //   });
   // };
 
-<!--   handleSearch = async () => {
-    const { keyword } = this.state
-    if (keyword === '') {
-      const res = await getAllPoems();
-      this.setState({
-        poems: res.data,
-      });
-    }
-    else {
-      const response = await getSomePoems(keyword);
-      this.setState({
-        poems: response.data,
-      });
-    }
+// <!--   handleSearch = async () => {
+//     const { keyword } = this.state
+//     if (keyword === '') {
+//       const res = await getAllPoems();
+//       this.setState({
+//         poems: res.data,
+//       });
+//     }
+//     else {
+//       const response = await getSomePoems(keyword);
+//       this.setState({
+//         poems: response.data,
+//       });
+//     }
 
-  }; -->
+//   }; -->
 
 
   componentDidMount = async () => {
