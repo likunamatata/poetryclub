@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getAllPoems, getSomePoems } from "../../services/poem-helpers";
+import { getAllPoems} from "../../services/poem-helpers";
 import Poems from "../widgets/Poems";
 import styles from "../../styles/PoemsContainer.module.css";
 // import SearchBar from "../widgets/SearchBar";
