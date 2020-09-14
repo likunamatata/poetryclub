@@ -8,7 +8,7 @@ body{
   align-items: center;
   overflow: auto;
   height: 95vh;
-  padding: 0px;
+  padding: 0 30px;
 }
 
 .landing, .login, .register, .user-screens{
