@@ -7,8 +7,8 @@ body{
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
-  height: 80vh;
-  padding: 30px;
+  height: 95vh;
+  padding: 0px;
 }
 
 .landing, .login, .register, .user-screens{
