@@ -4,6 +4,15 @@
   text-align: left;
 }
 
+.poemHeader{
+  text-align: right;
+}
+
+.poemHeader > p {
+  margin: 0px 0px 5px 0px;
+  color: grey;
+}
+
 .like{
   display: flex;
   flex-direction: row;
