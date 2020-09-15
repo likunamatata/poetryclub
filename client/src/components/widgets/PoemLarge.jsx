@@ -51,6 +51,8 @@ export default class PoemLarge extends Component {
 
     const { title, username, id, created_at } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
+    let date = !created_at? '' : new Date(created_at)
+    let date_text= !date? '': `${date.getMonth()}.${date.getDate()}.${date.getFullYear()}`
     try {
       parsed_text = JSON.parse(this.state.poem.text);
     } catch (e) {
@@ -71,7 +73,7 @@ export default class PoemLarge extends Component {
       <div className={styles.poem}>
         <div className={styles.poemHeader}>
           <p>@{username}</p>
-          <p>{created_at}</p>
+          <p>{date_text}</p>
         </div>
         <h3>{title}</h3>
           {lines}
