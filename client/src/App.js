@@ -43,7 +43,7 @@ class App extends Component {
     const currentUser = await registerUser(this.state.registerFormData);
     console.log('handleregister', currentUser)
     this.setState({ currentUser });
-    // this.props.history.push("/feed");
+    this.props.history.push("/feed");
   };
 
   handleLogout = () => {
