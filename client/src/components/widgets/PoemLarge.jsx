@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
 import { likePoem, getPoemLikes } from "../../services/like-helpers";
-import { Twitter, Facebook, Mail } from "react-social-sharing";
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -78,23 +77,7 @@ export default class PoemLarge extends Component {
           {alert}
         
         <div className={styles.poemButtons}>
-          <div className={styles.social}>
-            <Twitter
-              solid
-              small
-              link={`https://poetryclub.surge.sh/poems/${id}`}
-            />
-            <Facebook
-              solid
-              small
-              link={`https://poetryclub.surge.sh/poems/${id}`}
-            />
-            <Mail
-              solid
-              small
-              link={`https://poetryclub.surge.sh/poems/${id}`}
-            />
-          </div>
+        
           <div className={styles.like}>
             <svg className={styles.svg}>
               <path
