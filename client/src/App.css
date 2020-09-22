@@ -41,9 +41,12 @@ body{
 fill: blue;
 }
 
-.logout-container{
+.menu-container{
   text-align: right;
-  margin: 10px;
+  margin: 10px 25px ;
+}
+.material-icons.md-36 { 
+  font-size: 36px; 
 }
 
 .logout{

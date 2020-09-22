@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       submitted: false,
       currentUser: null,
+      poemLargeOptions: false,
       registerFormData: {
         username: "",
         email: "",
@@ -75,6 +76,12 @@ class App extends Component {
     }));
   };
 
+  togglePoemLargeOptions = () => {
+    this.setState(prevState => ({
+      poemLargeOptions: !prevState.poemLargeOptions
+    }))
+  }
+
   handleVerify = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
@@ -93,6 +100,8 @@ class App extends Component {
       <div className="App">
         <Header
           handleLogout={this.handleLogout}
+          showPoemLargeOptions={this.togglePoemLargeOptions}
+          poemLargeOptions={this.state.poemLargeOptions}
           currentUser={this.state.currentUser}
           history={this.props.history}
         />
