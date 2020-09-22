@@ -48,7 +48,7 @@ export default class PoemLarge extends Component {
     const { currentUser, poem_id} = this.props;
     const { heartClass, likes, alert} = this.state;
 
-    const { title, username, id, created_at } = !this.state.poem ? "" : this.state.poem;
+    const { title, username, created_at } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     try {
       parsed_text = JSON.parse(this.state.poem.text);
