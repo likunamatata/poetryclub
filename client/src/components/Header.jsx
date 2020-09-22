@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { Link } from 'react-router-dom'
 import PoemLargeModal from "./widgets/modals-and-materials/PoemLargeModal";
-import SocialShareModal from "./widgets/modals-and-materials/SocialShareIcons";
 
 export default function Header(props) {
 
