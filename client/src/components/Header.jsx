@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from 'react-router-dom'
-import PoemLargeModal from "./widgets/PoemLargeModal";
+import PoemLargeModal from "./widgets/modals-and-materials/PoemLargeModal";
+import SocialShareModal from "./widgets/modals-and-materials/SocialShareIcons";
 
 export default function Header(props) {
-  const optionsIcon = props.currentUser ? (
+
+  const [shareIcons, showIcons] = useState(false)
+
+  const moreOptionsIcon = props.currentUser ? (
     // <button className="logout" onClick={props.handleLogout}>
     //   Logout
     // </button>
@@ -13,17 +17,27 @@ export default function Header(props) {
   ) : (
       ""
     );
+  
+  const toggleShareIcons = () => {
+    showIcons(prevShare => {
+      return !prevShare
+    })
+  }
+  
   return (
     <div className="header">
       {/* <div className="menu-container">{logout}</div> */}
-      <div className="menu-container">{optionsIcon}</div>
+      <div className="menu-container">{moreOptionsIcon}</div>
       <Link to="/" className="title">The Poem Club</Link>
 
       <PoemLargeModal
         poemLargeOptions={props.poemLargeOptions}
         showPoemLargeOptions={props.showPoemLargeOptions}
+        showIcons={toggleShareIcons}
+        hideIcons={toggleShareIcons}
+        shareIcons={shareIcons}
       />
-      
+
     </div >
   );
 }
