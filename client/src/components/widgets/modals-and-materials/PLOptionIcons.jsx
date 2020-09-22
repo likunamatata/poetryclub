@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function OptionIcons(props) {
+export default function PLOptionIcons(props) {
   const location = useLocation()
   const poemID = location.pathname.substring(7)
 

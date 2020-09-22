@@ -66,6 +66,12 @@ fill: blue;
   height: 450px;
   justify-content: space-between;
 }
+.menu-option-icon-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-evenly;
+}
 .option-icon-container{
   display: flex;
   flex-direction: column;

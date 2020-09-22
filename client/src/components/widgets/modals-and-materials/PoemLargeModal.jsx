@@ -1,5 +1,5 @@
 import React from 'react'
-import OptionIcons from './OptionIcons'
+import PLOptionIcons from './PLOptionIcons'
 import SocialShareIcons from './SocialShareIcons'
 
 export default function PoemLargeModal(props) {
@@ -18,7 +18,7 @@ export default function PoemLargeModal(props) {
 
         <div className='poemlarge-option-icon-wrapper'>
           {!props.shareIcons ?
-            <OptionIcons
+            <PLOptionIcons
               toggleShareIcons={props.toggleShareIcons}
               hidePoemLargeOptions={props.hidePoemLargeOptions}
               updateEditClicked={props.updateEditClicked}

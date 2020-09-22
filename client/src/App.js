@@ -15,6 +15,7 @@ class App extends Component {
       submitted: false,
       currentUser: null,
       poemLargeOptions: false,
+      mainOptions: false,
       editClicked: false,
       registerFormData: {
         username: "",
@@ -35,6 +36,17 @@ class App extends Component {
 
   updateEditClicked = (boolean) => {
     this.setState({editClicked: boolean})
+  }
+
+  togglePoemLargeOptions = () => {
+    this.setState(prevState => ({
+      poemLargeOptions: !prevState.poemLargeOptions
+    }))
+  }
+  toggleMainOptions = () => {
+    this.setState(prevState => ({
+      mainOptions: !prevState.mainOptions
+    }))
   }
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
@@ -80,12 +92,6 @@ class App extends Component {
     }));
   };
 
-  togglePoemLargeOptions = () => {
-    this.setState(prevState => ({
-      poemLargeOptions: !prevState.poemLargeOptions
-    }))
-  }
-
   handleVerify = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
@@ -106,6 +112,8 @@ class App extends Component {
           handleLogout={this.handleLogout}
           showPoemLargeOptions={this.togglePoemLargeOptions}
           poemLargeOptions={this.state.poemLargeOptions}
+          showMainOptions={this.toggleMainOptions}
+          mainOptions={this.state.mainOptions}
           currentUser={this.state.currentUser}
           history={this.props.history}
           updateEditClicked={this.updateEditClicked}
