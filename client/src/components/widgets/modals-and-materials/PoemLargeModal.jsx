@@ -4,9 +4,13 @@ import SocialShareIcons from './SocialShareIcons'
 
 export default function PoemLargeModal(props) {
   return (
-    <div id="id01" className="w3-modal w3-animate-opacity" style={props.poemLargeOptions ? { display: 'block' } : { display: 'none' }}>
+    <div
+      className="w3-modal w3-animate-opacity"
+      style={props.poemLargeOptions ? { display: 'block'} : { display: 'none' }}
+    >
       <div className="w3-modal-content w3-card-1">
         <header className="w3-container w3-white">
+          {/* CLOSE MODAL ICON */}
           <svg onClick={() => {
             props.hidePoemLargeOptions()
             props.toggleShareIcons(false)
@@ -29,6 +33,6 @@ export default function PoemLargeModal(props) {
         </div>
 
       </div>
-    </div>
+    </div >
   )
 }
