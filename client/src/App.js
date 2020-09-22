@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       submitted: false,
       currentUser: null,
-      poemLargeOptions: false,
+      poemLargeOptions: true,
       registerFormData: {
         username: "",
         email: "",

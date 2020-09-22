@@ -56,6 +56,25 @@ fill: blue;
   background-color: rgba(0,0,0,0);
   padding: 0px
 }
+.w3-container{
+  text-align: right;
+  margin: 6px
+}
+.poemlarge-option-icon-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-between;
+}
+.option-icon-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.option-label{
+  font-family: 'Courier Prime', monospace;
+  font-size: 16px;
+}
 .logout{
   border: none;
   background-color: white;
