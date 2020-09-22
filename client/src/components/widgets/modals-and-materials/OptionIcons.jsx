@@ -1,12 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function OptionIcons(props) {
+  const location = useLocation()
+  const poemID = location.pathname.substring(7)
+
   return (
     <>
       {/* EDIT */}
       <div className='option-icon-container'>
-        <Link to='update-poem' onClick={props.hidePoemLargeOptions}>
+        <Link to={`/update-poem/${poemID}`} onClick={() => {
+          props.hidePoemLargeOptions();
+          props.updateEditClicked(true)
+        }
+        }>
           <svg width="46" height="58" viewBox="0 0 46 58" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0)">
               <path d="M42.9449 15.0294L35.9143 8.02345C35.567 7.67732 35.0023 7.67732 34.655 8.02345L7.68327 34.8969C7.67614 34.9041 7.67258 34.9147 7.66545 34.9236C7.64586 34.9449 7.63517 34.9697 7.61914 34.9946C7.54611 35.0904 7.49445 35.1934 7.46595 35.3052C7.46061 35.3265 7.44102 35.3407 7.43745 35.3602L5.80939 43.9849C5.75595 44.2725 5.8468 44.5689 6.0552 44.7766C6.22264 44.9452 6.44886 45.0375 6.68398 45.0375C6.73742 45.0375 6.79442 45.0322 6.84786 45.0215L15.5083 43.4063C15.5315 43.4027 15.5457 43.3832 15.5653 43.3779C15.6793 43.346 15.7844 43.2962 15.8806 43.2235C15.9037 43.2057 15.9269 43.1968 15.9483 43.1791C15.9572 43.172 15.9679 43.1684 15.975 43.1614L42.9467 16.2825C43.294 15.9364 43.294 15.3755 42.9449 15.0294ZM41.0568 15.6559L38.8534 17.8516L33.0821 12.1006L35.2855 9.90495L41.0568 15.6559ZM31.821 13.3555L37.5922 19.1065L15.3444 41.2798L12.4588 38.4026L9.57139 35.5253L31.821 13.3555ZM7.80083 43.0389L8.8767 37.3411L11.1977 39.6539L13.5222 41.9721L7.80083 43.0389Z" fill="black" />

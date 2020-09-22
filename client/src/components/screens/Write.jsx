@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { updatePoem } from '../../services/poem-helpers'
-import { EditorState, Editor, convertToRaw } from "draft-js";
+import { withRouter } from 'react-router'
+import { getAllPoems, updatePoem } from '../../services/poem-helpers'
+import { EditorState, Editor, convertToRaw, convertFromRaw } from "draft-js";
 import { createPoem } from "../../services/poem-helpers";
 import "../../styles/Write.css";
 
 class Write extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       editorState: EditorState.createEmpty(),
       poem: {
@@ -20,15 +21,50 @@ class Write extends Component {
     };
   }
 
+
+  // FOR EDITING
+  showPoemToEdit = async () => {
+    const { id } = this.props.match.params
+    const allPoems = await getAllPoems()
+    const poems = allPoems.data.filter(poem => poem.id === parseInt(id))[0]
+    const titleNText = Object.assign(this.state.poem, {
+      text: poems.text,
+      title: poems.title
+    })
+    this.setState(titleNText)
+    // const poem = await updatePoem()
+    console.log(this.state.poem)
+  }
+  
+
+  componentDidMount = async () => {
+    if (this.props.editClicked) {
+      await this.showPoemToEdit()
+      const parsedContent = JSON.parse(this.state.text)
+      const convertedContent = convertFromRaw(parsedContent)
+      this.setState({
+        editorState: EditorState.createWithContent(convertedContent)
+      })
+    }
+  }
+
   handleChange = (event) => {
     const updatedField = { [event.target.name]: event.target.value };
     const editedPoem = Object.assign(this.state.poem, updatedField);
     this.setState({ poem: editedPoem });
   };
 
+  // storeContent = (rawContent) => {
+  //   this.setState({
+  //     ...this.state.poem,
+  //     text: JSON.stringify(rawContent),
+  //   })
+  // }
+
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     const updatedField = { text: JSON.stringify(convertToRaw(contentState)) };
+    // this.storeContent(updatedField)
     Object.assign(this.state.poem, updatedField);
     this.setState({
       editorState,
@@ -43,7 +79,6 @@ class Write extends Component {
   };
 
   render() {
-
     return (
       <div className='write'>
         <div className="submit" onClick={this.onSubmit}>
@@ -72,4 +107,4 @@ class Write extends Component {
   }
 }
 
-export default Write;
+export default withRouter(Write);

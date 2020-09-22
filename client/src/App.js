@@ -15,6 +15,7 @@ class App extends Component {
       submitted: false,
       currentUser: null,
       poemLargeOptions: false,
+      editClicked: false,
       registerFormData: {
         username: "",
         email: "",
@@ -32,6 +33,9 @@ class App extends Component {
     this.setState({ submitted: !this.state.submitted })
   }
 
+  updateEditClicked = (boolean) => {
+    this.setState({editClicked: boolean})
+  }
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.loginFormData);
@@ -104,6 +108,7 @@ class App extends Component {
           poemLargeOptions={this.state.poemLargeOptions}
           currentUser={this.state.currentUser}
           history={this.props.history}
+          updateEditClicked={this.updateEditClicked}
         />
         <div className="main">
           {!this.state.currentUser ? (
@@ -116,7 +121,8 @@ class App extends Component {
               loginFormData={this.state.loginFormData}
               registerFormData={this.state.registerFormData}
               currentUser={this.state.currentUser}
-              handleRegister={this.handleRegister} />
+              handleRegister={this.handleRegister}
+            />
 
           ) : (
               //screens to show when logged in
@@ -124,6 +130,8 @@ class App extends Component {
                 history={this.props.history}
                 currentUser={this.state.currentUser}
                 submitted={this.state.submitted}
+                updateEditClicked={this.updateEditClicked}
+                editClicked={this.state.editClicked}
                 updateSubmittedState={this.updateSubmittedState}
               />
             )}

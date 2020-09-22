@@ -24,7 +24,6 @@ function UserScreens(props) {
           />
         )}
       />
-
       <Route
         exact
         path="/notebook"
@@ -47,12 +46,14 @@ function UserScreens(props) {
       />
       <Route
         exact
-        path="/update-poem"
+        path="/update-poem/:id"
         render={() => (
           <Write
             currentUser={props.currentUser}
             history={props.history}
             updateSubmittedState={props.updateSubmittedState}
+            updateEditClicked={props.updateEditClicked}
+            editClicked={props.editClicked}
           />
         )}
       />

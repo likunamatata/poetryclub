@@ -28,6 +28,7 @@ export default function Header(props) {
         hidePoemLargeOptions={props.showPoemLargeOptions}
         toggleShareIcons={toggleShareIcons}
         shareIcons={shareIcons}
+        updateEditClicked={props.updateEditClicked}
       />
 
     </div >

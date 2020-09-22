@@ -21,6 +21,7 @@ export default function PoemLargeModal(props) {
             <OptionIcons
               toggleShareIcons={props.toggleShareIcons}
               hidePoemLargeOptions={props.hidePoemLargeOptions}
+              updateEditClicked={props.updateEditClicked}
             />
             :
             <SocialShareIcons />
