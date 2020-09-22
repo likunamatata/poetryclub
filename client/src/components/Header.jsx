@@ -4,7 +4,7 @@ import PoemLargeModal from "./widgets/modals-and-materials/PoemLargeModal";
 
 export default function Header(props) {
 
-  const [shareIcons, showIcons] = useState(false)
+  const [shareIcons, toggleShareIcons] = useState(false)
 
   const moreOptionsIcon = props.currentUser ? (
     // <button className="logout" onClick={props.handleLogout}>
@@ -15,13 +15,7 @@ export default function Header(props) {
     </svg>
   ) : (
       ""
-    );
-  
-  const toggleShareIcons = () => {
-    showIcons(prevShare => {
-      return !prevShare
-    })
-  }
+    );  
   
   return (
     <div className="header">
@@ -31,9 +25,8 @@ export default function Header(props) {
 
       <PoemLargeModal
         poemLargeOptions={props.poemLargeOptions}
-        showPoemLargeOptions={props.showPoemLargeOptions}
-        showIcons={toggleShareIcons}
-        hideIcons={toggleShareIcons}
+        hidePoemLargeOptions={props.showPoemLargeOptions}
+        toggleShareIcons={toggleShareIcons}
         shareIcons={shareIcons}
       />
 

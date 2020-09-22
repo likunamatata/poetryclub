@@ -47,6 +47,17 @@ function UserScreens(props) {
       />
       <Route
         exact
+        path="/update-poem"
+        render={() => (
+          <Write
+            currentUser={props.currentUser}
+            history={props.history}
+            updateSubmittedState={props.updateSubmittedState}
+          />
+        )}
+      />
+      <Route
+        exact
         path="/search"
         render={() => (
           <Search currentUser={props.currentUser} history={props.history} />
