@@ -17,7 +17,6 @@ export default function Header(props) {
 
   const loggedInUserPoems = async (id) => {
     const poems = await getUserPoems(id)
-    console.log(poems)
     // build an array of loggedin user poem ids
     const poemIDs = poems.map(poem => poem.id) 
     setPoemIDs(poemIDs)

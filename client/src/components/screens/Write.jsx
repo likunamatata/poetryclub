@@ -38,7 +38,9 @@ class Write extends Component {
 
 
   componentDidMount = async () => {
-    if (this.props.editClicked) {
+    const location = this.props.location
+    const pathname= location.pathname.substring(0,12)
+    if (pathname === '/update-poem') {
       await this.showPoemToEdit()
       const parsedContent = JSON.parse(this.state.text)
       const convertedContent = convertFromRaw(parsedContent)
