@@ -22,7 +22,7 @@ class Write extends Component {
   }
 
 
-  // FOR EDITING
+  // FOR EDITING PATH ONLY
   showPoemToEdit = async () => {
     const { id } = this.props.match.params
     const allPoems = await getAllPoems()
@@ -35,7 +35,7 @@ class Write extends Component {
     // const poem = await updatePoem()
     console.log(this.state.poem)
   }
-  
+
 
   componentDidMount = async () => {
     if (this.props.editClicked) {

@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom'
+import { getUserPoems } from '../services/poem-helpers'
 import PoemLargeModal from "./widgets/modals-and-materials/PoemLargeModal";
 import MainModal from "./widgets/modals-and-materials/MainModal"
+
 export default function Header(props) {
 
+  const [userPoemIDs, setPoemIDs] =useState([])
   const [shareIcons, toggleShareIcons] = useState(false)
   const location = useLocation()
   const pathname = location.pathname.substring(0, 6)
+
+  useEffect(() => {
+    props.currentUser && loggedInUserPoems(props.currentUser.id)
+  }, [props.currentUser])
+
+  const loggedInUserPoems = async (id) => {
+    const poems = await getUserPoems(id)
+    console.log(poems)
+    // build an array of loggedin user poem ids
+    const poemIDs = poems.map(poem => poem.id) 
+    setPoemIDs(poemIDs)
+  }
+
 
   const moreOptionsIcon = pathname === '/poems' ?
     (
@@ -37,6 +53,7 @@ export default function Header(props) {
           toggleShareIcons={toggleShareIcons}
           shareIcons={shareIcons}
           updateEditClicked={props.updateEditClicked}
+          userPoemIDs={userPoemIDs}
         />
         :
         <MainModal
