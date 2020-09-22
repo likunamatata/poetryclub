@@ -48,7 +48,14 @@ fill: blue;
 .material-icons.md-36 { 
   font-size: 36px; 
 }
-
+.w3-modal-content{
+  width: 100vw;
+  height: 100vh;
+}
+.w3-modal{
+  background-color: rgba(0,0,0,0);
+  padding: 0px
+}
 .logout{
   border: none;
   background-color: white;
