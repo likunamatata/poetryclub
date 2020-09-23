@@ -68,9 +68,7 @@ class Write extends Component {
   //CREATE POEM 
   submitNewPoem = (event) => {
     event.preventDefault();
-    console.log('before')
     createPoem(this.state.poem);
-    console.log('after')
     this.props.updateSubmittedState() //turns submitted to 'true'
     this.props.history.push('/')
   };
