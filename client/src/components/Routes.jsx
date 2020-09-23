@@ -24,7 +24,6 @@ function UserScreens(props) {
           />
         )}
       />
-
       <Route
         exact
         path="/notebook"
@@ -47,6 +46,19 @@ function UserScreens(props) {
       />
       <Route
         exact
+        path="/update-poem/:id"
+        render={() => (
+          <Write
+            currentUser={props.currentUser}
+            history={props.history}
+            updateSubmittedState={props.updateSubmittedState}
+            updateEditClicked={props.updateEditClicked}
+            editClicked={props.editClicked}
+          />
+        )}
+      />
+      <Route
+        exact
         path="/search"
         render={() => (
           <Search currentUser={props.currentUser} history={props.history} />
@@ -58,7 +70,7 @@ function UserScreens(props) {
         path="/poems/:poem_id"
         render={(props) => {
           const { poem_id } = props.match.params;
-          return <PoemLarge poem_id={poem_id} history={props.history} currentUser={currentUser} />;
+          return <PoemLarge poem_id={poem_id} history={props.history} currentUser={currentUser}/>;
         }}
       />
     </div>
