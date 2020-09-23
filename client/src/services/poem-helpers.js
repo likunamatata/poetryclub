@@ -25,8 +25,17 @@ export const getOnePoem = async (poem_id) => {
   try {
     const resp = await api.get(`/poems/${poem_id}`)
     return resp
-  } catch (error) { 
+  } catch (error) {
     throw error
+  }
+}
+
+export const updatePoem = async (poem_id, poem) => {
+  try {
+    const resp = await api.put(`/poems/${poem_id}`, { poem: poem })
+    return resp
+  } catch (error) {
+    return error
   }
 }
 
@@ -47,4 +56,9 @@ export const getSomePoems = async (keyword) => {
   } catch (error) {
     throw error
   }
+}
+export const destroyPoem = async (poem_id) => {
+  console.log('del')
+  await api.delete(`/poems/${poem_id}`)
+  console.log('ete')
 }
