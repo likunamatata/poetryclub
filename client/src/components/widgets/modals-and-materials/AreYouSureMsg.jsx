@@ -15,10 +15,15 @@ export default function AreYouSureMsg(props) {
       <div className='dialogue-buttons'>
         <button id='yes' onClick={() => {
           destroyPoem(poemID);
+          props.toggleDeleteMsg(false)
+          props.togglePLIcons(true);
           props.hidePoemLargeOptions();
           history.push('/')
         }}>yes</button>
-        <button id="cancel" onClick={() => props.hidePoemLargeOptions()}>cancel</button>
+        <button id="cancel" onClick={() => {
+          props.toggleDeleteMsg(false)
+          props.togglePLIcons(true);
+        }}>cancel</button>
 
       </div>
     </div>

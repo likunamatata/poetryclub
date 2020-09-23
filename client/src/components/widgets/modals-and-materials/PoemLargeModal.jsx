@@ -46,7 +46,9 @@ export default function PoemLargeModal(props) {
           {props.shareIcons && <SocialShareIcons />}
           {props.deleteMsg &&
             <AreYouSureMsg
-              hidePoemLargeOptions={props.hidePoemLargeOptions}
+            hidePoemLargeOptions={props.hidePoemLargeOptions}
+            togglePLIcons={props.togglePLIcons}
+            toggleDeleteMsg={props.toggleDeleteMsg}
             />}
         </div>
 

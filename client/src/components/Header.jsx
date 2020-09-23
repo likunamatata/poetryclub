@@ -7,9 +7,9 @@ import MainModal from "./widgets/modals-and-materials/MainModal"
 export default function Header(props) {
 
   const [userPoemIDs, setPoemIDs] = useState([])
-  const [plIcons, togglePLIcons] = useState(false)
+  const [plIcons, togglePLIcons] = useState(true)
   const [shareIcons, toggleShareIcons] = useState(false)
-  const [deleteMsg, toggleDeleteMsg] = useState(true)
+  const [deleteMsg, toggleDeleteMsg] = useState(false)
   const location = useLocation()
   const pathname = location.pathname.substring(0, 6)
 
