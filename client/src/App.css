@@ -18,10 +18,18 @@ body{
 
 .header{
   text-align: center;
+  margin-bottom: 25px;
 }
-
+.sub-header{
+  display: flex;
+  align-items: center;
+}
+.back-icon{
+  flex-basis: 20%
+}
 .title{
   font-size: 22px;
+  flex-basis: 60%
 }
 
 
@@ -43,7 +51,7 @@ fill: blue;
 
 .menu-container{
   text-align: right;
-  margin: 30px 30px ;
+  margin: 30px 30px 5px 30px ;
 }
 .material-icons.md-36 { 
   font-size: 36px; 
