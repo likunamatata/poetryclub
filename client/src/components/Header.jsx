@@ -6,8 +6,10 @@ import MainModal from "./widgets/modals-and-materials/MainModal"
 
 export default function Header(props) {
 
-  const [userPoemIDs, setPoemIDs] =useState([])
+  const [userPoemIDs, setPoemIDs] = useState([])
+  const [plIcons, togglePLIcons] = useState(false)
   const [shareIcons, toggleShareIcons] = useState(false)
+  const [deleteMsg, toggleDeleteMsg] = useState(true)
   const location = useLocation()
   const pathname = location.pathname.substring(0, 6)
 
@@ -51,6 +53,10 @@ export default function Header(props) {
           hidePoemLargeOptions={props.showPoemLargeOptions}
           toggleShareIcons={toggleShareIcons}
           shareIcons={shareIcons}
+          toggleDeleteMsg={toggleDeleteMsg}
+          deleteMsg={deleteMsg}
+          togglePLIcons={togglePLIcons}
+          plIcons={plIcons}
           updateEditClicked={props.updateEditClicked}
           userPoemIDs={userPoemIDs}
         />

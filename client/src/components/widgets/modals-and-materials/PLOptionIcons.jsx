@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { destroyPoem } from '../../../services/poem-helpers'
 
 export default function PLOptionIcons(props) {
   const location = useLocation()
@@ -30,16 +31,27 @@ export default function PLOptionIcons(props) {
             </Link>
           </div>
           {/* DELETE */}
-          <div className='option-icon-container'>
+          <div className='option-icon-container' onClick={() => {
+            props.togglePLIcons(false);
+            props.toggleDeleteMsg(true)
+          }}>
+            {/* <Link to='/' onClick={() => {
+              destroyPoem(poemID);
+              props.hidePoemLargeOptions();
+            }}> */}
             <svg width="46" height="58" viewBox="0 0 46 58" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M21.4187 4.32825C19.7074 4.32825 18.3036 5.63995 18.2131 7.31525H12.88C10.8571 7.31525 9.19995 8.98685 9.19995 11.0272V11.0562C9.19995 12.2764 9.81466 13.3655 10.7237 14.0432C10.0732 14.7137 9.65995 15.6331 9.65995 16.6387V38.3597C9.65995 40.4001 11.3171 42.0717 13.34 42.0717H32.6887C34.7115 42.0717 36.3687 40.4001 36.3687 38.3597V16.6387C36.3687 15.6258 35.9638 14.7005 35.305 14.0287C36.2101 13.3506 36.8 12.2733 36.8 11.0562V11.0272C36.8 8.98685 35.1428 7.31525 33.12 7.31525H27.7868C27.6963 5.63995 26.2925 4.32825 24.5812 4.32825H21.4187ZM21.4187 5.25625H24.5812C25.8097 5.25625 26.7779 6.1542 26.8668 7.31525H19.1331C19.222 6.1542 20.1902 5.25625 21.4187 5.25625ZM12.88 9.17125H33.12C34.1552 9.17125 34.96 9.98297 34.96 11.0272V11.0562C34.96 12.1005 34.1552 12.9122 33.12 12.9122H12.88C11.8447 12.9122 11.04 12.1005 11.04 11.0562V11.0272C11.04 9.98297 11.8447 9.17125 12.88 9.17125ZM13.34 14.7827H16.1575V40.2157H13.34C12.3047 40.2157 11.5 39.404 11.5 38.3597V16.6387C11.5 15.5945 12.3047 14.7827 13.34 14.7827ZM17.02 14.7827H22.5975V40.2157H17.02V14.7827ZM23.4312 14.7827H29.0375V40.2157H23.4312V14.7827ZM29.8712 14.7827H32.6887C33.724 14.7827 34.5287 15.5945 34.5287 16.6387V38.3597C34.5287 39.404 33.724 40.2157 32.6887 40.2157H29.8712V14.7827Z" fill="black" fillOpacity="0.980392" />
             </svg>
             <h3 className='option-label'>Delete</h3>
+            {/* </Link> */}
           </div>
         </>
       )}
       {/* SHARE */}
-      <div className='option-icon-container' onClick={() => props.toggleShareIcons(true)}>
+      <div className='option-icon-container' onClick={() => {
+        props.togglePLIcons(false);
+        props.toggleShareIcons(true)
+      }}>
         <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M43.026 19.454L35.5 11.928L27.974 19.454L25.986 17.466L35.5 7.95203L45.014 17.466L43.026 19.454Z" fill="black" />
           <path d="M34.08 9.93994H36.92V39.7599H34.08V9.93994Z" fill="black" />

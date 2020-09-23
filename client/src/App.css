@@ -72,6 +72,31 @@ fill: blue;
   height: 450px;
   justify-content: space-evenly;
 }
+.dialogue-box{
+  width: 255px;
+  align-self: center
+}
+.dialogue-msg{
+  font-family: 'Courier Prime', monospace;
+  font-size: 20px
+}
+.dialogue-buttons > button{
+  width: 120px;
+  height: 60px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 20px
+}
+#yes{
+  margin-right: 10px;
+  border: white 1px solid;
+  background-color: white;
+}
+#cancel{
+  color: white;
+  border: black 1px solid;
+  background-color: black;
+}
 .option-icon-container{
   display: flex;
   flex-direction: column;

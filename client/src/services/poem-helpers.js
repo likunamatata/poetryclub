@@ -57,3 +57,8 @@ export const getSomePoems = async (keyword) => {
     throw error
   }
 }
+export const destroyPoem = async (poem_id) => {
+  console.log('del')
+  await api.delete(`/poems/${poem_id}`)
+  console.log('ete')
+}

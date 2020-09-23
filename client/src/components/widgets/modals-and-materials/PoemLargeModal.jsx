@@ -1,18 +1,30 @@
 import React from 'react'
+import AreYouSureMsg from './AreYouSureMsg'
 import PLOptionIcons from './PLOptionIcons'
 import SocialShareIcons from './SocialShareIcons'
 
 export default function PoemLargeModal(props) {
+
+
+
+  // const modalOptions = (shareIcons, deleteMsg) => {
+  //   if (shareIcons) return <SocialShareIcons />
+  //   if (deleteMsg) return <AreYouSureMsg />
+  // }
+
+
   return (
     <div
       className="w3-modal w3-animate-opacity"
-      style={props.poemLargeOptions ? { display: 'block'} : { display: 'none' }}
+      style={props.poemLargeOptions ? { display: 'block' } : { display: 'none' }}
     >
       <div className="w3-modal-content w3-card-1">
         <header className="w3-container w3-white">
           {/* CLOSE MODAL ICON */}
           <svg onClick={() => {
             props.hidePoemLargeOptions()
+            props.togglePLIcons(true);
+            props.toggleDeleteMsg(false)
             props.toggleShareIcons(false)
           }}
             width="43" height="54" viewBox="0 0 43 54" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,16 +33,18 @@ export default function PoemLargeModal(props) {
         </header>
 
         <div className='poemlarge-option-icon-wrapper'>
-          {!props.shareIcons ?
+          {props.plIcons &&
             <PLOptionIcons
               toggleShareIcons={props.toggleShareIcons}
               hidePoemLargeOptions={props.hidePoemLargeOptions}
+              toggleDeleteMsg={props.toggleDeleteMsg}
+              togglePLIcons={props.togglePLIcons}
               updateEditClicked={props.updateEditClicked}
               userPoemIDs={props.userPoemIDs}
             />
-            :
-            <SocialShareIcons />
           }
+          {props.shareIcons && <SocialShareIcons />}
+          {props.deleteMsg && <AreYouSureMsg />}
         </div>
 
       </div>
