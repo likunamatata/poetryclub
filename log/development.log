@@ -30264,3 +30264,129 @@ Processing by LikesController#index as HTML
 Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 1453)
 
 
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:20:45 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:20:45 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (2.2ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 2.2ms | Allocations: 3153)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:26:17 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 1.5ms | Allocations: 954)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:26:17 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.0ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 1.0ms | Allocations: 3173)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:26:47 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.4ms | Allocations: 865)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:30:17 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 865)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:30:35 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (29.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 33ms (Views: 0.6ms | ActiveRecord: 29.0ms | Allocations: 865)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:31:04 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:31:04 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.5ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 1.5ms | Allocations: 3153)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:31:09 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (53.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 58ms (Views: 0.9ms | ActiveRecord: 53.5ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:31:09 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (20.3ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 31ms (Views: 9.2ms | ActiveRecord: 20.3ms | Allocations: 3154)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:33:51 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 7.0ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:33:51 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (0.6ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.6ms | Allocations: 3153)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:34:09 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:34:09 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (4.2ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 4.2ms | Allocations: 3153)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-23 12:34:10 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-23 12:34:10 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (6.6ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 16ms (Views: 8.6ms | ActiveRecord: 6.6ms | Allocations: 3153)
+
+
