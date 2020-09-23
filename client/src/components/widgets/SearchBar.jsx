@@ -7,7 +7,7 @@ function SearchBar(props) {
         <form className={styles.authForm} onSubmit={(e) => {
           e.preventDefault();
           // REMOVED SEARCH OPTION. NO NEED FOR THIS SUBMIT BTN OR FUNCTION
-          // SEARCHING ON CHANGE NOW
+          // SEARCHING ON CHANGE NOW. But uncomment below if needed.
           // props.handleSearch();
         }} >
           <input
