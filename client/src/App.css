@@ -56,8 +56,10 @@ fill: blue;
   background-color: rgba(0,0,0,0);
   padding: 0px;
 }
-.w3-container{
-  text-align: right;
+.header-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 6px
 }
 .poemlarge-option-icon-wrapper{
