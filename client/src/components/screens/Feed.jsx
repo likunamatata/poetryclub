@@ -45,8 +45,8 @@ class Feed extends Component {
   };
 
   componentDidUpdate = () => {
-    // componentDidUpdate needs a conditional that tests a change in a value.
-    // If that value changes, then it will run/update
+    // componentDidUpdate needed a conditional that tests a change in a value.
+    // If that value changes, then it will run/update. It updates now.
     if (this.props.submitted) {
       this.getPoems()
       this.props.updateSubmittedState() //turns submitted to 'false'

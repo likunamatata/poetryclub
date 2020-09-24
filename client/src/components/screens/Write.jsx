@@ -55,7 +55,7 @@ class Write extends Component {
     this.setState({ poem: editedPoem });
   };
 
-
+ 
   onChange = (editorState) => {
     const contentState = editorState.getCurrentContent();
     const updatedField = { text: JSON.stringify(convertToRaw(contentState)) };
