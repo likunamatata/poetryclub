@@ -15,7 +15,7 @@ export default function Header(props) {
 
   useEffect(() => {
     props.currentUser && loggedInUserPoems(props.currentUser.id)
-  }, [props.currentUser])
+  }, [props.currentUser, props.submitted])
 
   const loggedInUserPoems = async (id) => {
     const poems = await getUserPoems(id)
