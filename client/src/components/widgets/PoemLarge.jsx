@@ -71,7 +71,7 @@ export default class PoemLarge extends Component {
     return (
       <div className={styles.poem}>
         <div className={styles.poemHeader}>
-          <p>@{username}</p>
+          <p className={styles.poemAuthor}>@{username}</p>
           <p>{date_text}</p>
         </div>
         <h3>{title}</h3>

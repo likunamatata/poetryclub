@@ -117,6 +117,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           history={this.props.history}
           updateEditClicked={this.updateEditClicked}
+          submitted={this.state.submitted}
         />
         <div className="main">
           {!this.state.currentUser ? (
