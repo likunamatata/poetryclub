@@ -61,13 +61,12 @@ export default class PoemSmall extends Component {
 
     const first_line = parsed_text ? parsed_text.blocks[0].text : ''
 
-
     return (
       <div className={styles.poem}>
         <Link to={poem.poem_id ? `/poems/${poem.poem_id}` : `/poems/${poem.id}`}>
-          <p>{poem.title}</p>
+          <p className={styles.poemTitle}>{poem.title}</p>
           <p className={styles.poemSnippet}>{`${first_line}...`}</p>
-          <p>{`By ${poem.username}`}</p>
+          <p className={styles.poemAuthor}>{`@${poem.username}`}</p>
         </Link>
         <div className={styles.like}>
           <svg className={styles.svg}>

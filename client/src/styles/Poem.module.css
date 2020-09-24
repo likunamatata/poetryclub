@@ -8,10 +8,16 @@
   text-align: right;
 }
 
-.poemHeader > p {
+.poemAuthor{
   margin: 0px 0px 5px 0px;
   color: grey;
 }
+
+.poemTitle{
+  font-weight: bold;
+  font-style: italic;
+}
+
  
 .like{
   display: flex;
