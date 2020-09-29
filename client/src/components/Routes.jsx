@@ -7,13 +7,14 @@ import Feed from "./screens/Feed";
 import Notebook from "./screens/Notebook";
 import Search from "./screens/Search";
 import PoemLarge from "./widgets/PoemLarge";
+import FeedByAuthor from './screens/FeedByAuthor'
 
 function UserScreens(props) {
-  const { currentUser } = props
+  const { currentUser } = props;
   return (
     <div className="user-screens">
       <Route
-        exact 
+        exact
         path="/"
         render={() => (
           <Feed
@@ -70,7 +71,28 @@ function UserScreens(props) {
         path="/poems/:poem_id"
         render={(props) => {
           const { poem_id } = props.match.params;
-          return <PoemLarge poem_id={poem_id} history={props.history} currentUser={currentUser}/>;
+          return (
+            <PoemLarge
+              poem_id={poem_id}
+              history={props.history}
+              currentUser={currentUser}
+            />
+          );
+        }}
+      />
+
+      <Route
+        exact
+        path="/authors/:user_id"
+        render={(props) => {
+          const { user_id } = props.match.params;
+          return (
+            <FeedByAuthor
+              author={user_id}
+              history={props.history}
+              currentUser={currentUser}
+            />
+          );
         }}
       />
     </div>

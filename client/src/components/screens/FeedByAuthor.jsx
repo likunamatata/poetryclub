@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import { getAllPoems} from "../../services/poem-helpers";
+import { getUserPoems} from "../../services/poem-helpers";
 import Poems from "../widgets/Poems";
 import styles from "../../styles/PoemsContainer.module.css";
-// import SearchBar from "../widgets/SearchBar";
 
 
-class Feed extends Component {
+class FeedByAuthor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      poems: [],
-      keyword: ""
+      poems: ''
     };
   }
 
   componentDidMount = async () => {
+    console.log('state', this.state)
     this.getPoems()
   };
 
@@ -24,17 +23,19 @@ class Feed extends Component {
       this.props.updateSubmittedState()
     }
   }
+
   getPoems = async () => {
-    const res = await getAllPoems();
+    const res = await getUserPoems(this.props.author);
+    console.log('res', res)
     this.setState({
-      poems: res.data,
+      poems: res,
     });
   }
 
   render() {
     const poems =
       this.state.poems.length === 0 ? (
-        ""
+        console.log('something wrong with state', this.state.poems)
       ) : (
           <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
         );
@@ -46,4 +47,4 @@ class Feed extends Component {
   }
 }
 
-export default Feed;
+export default FeedByAuthor;

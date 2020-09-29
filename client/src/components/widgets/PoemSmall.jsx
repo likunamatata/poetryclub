@@ -65,9 +65,11 @@ export default class PoemSmall extends Component {
       <div className={styles.poem}>
         <Link to={poem.poem_id ? `/poems/${poem.poem_id}` : `/poems/${poem.id}`}>
           <p className={styles.poemTitle}>{poem.title}</p>
-          <p className={styles.poemSnippet}>{`${first_line}...`}</p>
-          <p className={styles.poemAuthor}>{`@${poem.username}`}</p>
         </Link>
+        <p className={styles.poemSnippet}>{`${first_line}...`}</p>
+        <Link to={`/authors/${poem.user_id}`}>
+          <p className={styles.poemAuthor}>{`@${poem.username}`}</p>
+       </Link>
         <div className={styles.like}>
           <svg className={styles.svg}>
             <path
