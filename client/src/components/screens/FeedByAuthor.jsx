@@ -13,7 +13,6 @@ class FeedByAuthor extends Component {
   }
 
   componentDidMount = async () => {
-    console.log('state', this.state)
     this.getPoems()
   };
 
@@ -26,7 +25,6 @@ class FeedByAuthor extends Component {
 
   getPoems = async () => {
     const res = await getUserPoems(this.props.author);
-    console.log('res', res)
     this.setState({
       poems: res,
     });
@@ -34,8 +32,7 @@ class FeedByAuthor extends Component {
 
   render() {
     const poems =
-      this.state.poems.length === 0 ? (
-        console.log('something wrong with state', this.state.poems)
+      this.state.poems.length === 0 ? ( ''
       ) : (
           <Poems poems={this.state.poems} currentUser={this.props.currentUser} />
         );

@@ -49,7 +49,6 @@ export const getUserPoems = async (user_id) => {
 }
 
 export const getSomePoems = async (keyword) => {
-  console.log(keyword)
   try {
     const resp = await api.get(`/poems/search/${keyword}`)
     return resp
@@ -58,7 +57,5 @@ export const getSomePoems = async (keyword) => {
   }
 }
 export const destroyPoem = async (poem_id) => {
-  console.log('del')
   await api.delete(`/poems/${poem_id}`)
-  console.log('ete')
 }
