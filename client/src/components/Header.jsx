@@ -72,6 +72,7 @@ export default function Header(props) {
           plIcons={plIcons}
           updateEditClicked={props.updateEditClicked}
           userPoemIDs={userPoemIDs}
+          updateDeletedState={props.updateDeletedState}
         />
         :
         <MainModal
