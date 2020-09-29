@@ -32,7 +32,6 @@ class Write extends Component {
       title: poems.title
     })
     this.setState(titleNText)
-    console.log(this.state.poem)
   }
 
 
