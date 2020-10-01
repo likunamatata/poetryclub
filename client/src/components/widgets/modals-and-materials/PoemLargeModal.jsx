@@ -54,6 +54,7 @@ export default function PoemLargeModal(props) {
               hidePoemLargeOptions={props.hidePoemLargeOptions}
               togglePLIcons={props.togglePLIcons}
               toggleDeleteMsg={props.toggleDeleteMsg}
+              updateDeletedState={props.updateDeletedState}
             />}
         </div>
 

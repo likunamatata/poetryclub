@@ -13,6 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       submitted: false,
+      deleted: false,
       currentUser: null,
       poemLargeOptions: false,
       mainOptions: false,
@@ -27,13 +28,15 @@ class App extends Component {
         password: ""
       },
     };
-  }
+  } 
   // -------------- FOR RENDERING THE FEED ON NEW POEM SUBMISSION ------------------ //
 
   updateSubmittedState = () => {
     this.setState({ submitted: !this.state.submitted })
   }
-
+  updateDeletedState = () => {
+    this.setState({deleted : !this.state.deleted})
+  }
   updateEditClicked = (boolean) => {
     this.setState({editClicked: boolean})
   }
@@ -115,6 +118,7 @@ class App extends Component {
           history={this.props.history}
           updateEditClicked={this.updateEditClicked}
           submitted={this.state.submitted}
+          updateDeletedState={this.updateDeletedState}
         />
         <div className="main">
           {!this.state.currentUser ? (
@@ -136,9 +140,11 @@ class App extends Component {
                 history={this.props.history}
                 currentUser={this.state.currentUser}
                 submitted={this.state.submitted}
+                deleted={this.state.deleted}
                 updateEditClicked={this.updateEditClicked}
                 editClicked={this.state.editClicked}
                 updateSubmittedState={this.updateSubmittedState}
+                updateDeletedState={this.updateDeletedState}
               />
             )}
         </div>

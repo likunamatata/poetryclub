@@ -1,25 +1,52 @@
 import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
-import { getOnePoem } from "../../services/poem-helpers";
+import { getOnePoem, getAllPoems } from "../../services/poem-helpers";
 import { likePoem, getPoemLikes } from "../../services/like-helpers";
+import { withRouter } from "react-router";
 
-export default class PoemLarge extends Component {
+class PoemLarge extends Component {
   constructor(props) {
     super(props);
     this.state = {
       likes: "",
       heartClass: styles.unliked,
       alert: "",
+      allPoemIDs: [],
+      redirect: false
     };
   }
 
+
   componentDidMount = async () => {
     this.displayLikes();
+    await this.getAllPoemIDs();
+    // redirects if trying to go back to a deleted poem
+    if (this.state.redirect) {
+      const { history } = this.props;
+      history.push('/')
+    }
     const res = await getOnePoem(this.props.poem_id);
     this.setState({
       poem: res.data,
     });
   };
+
+  // checks if poem is deleted.
+  checkIfPoemIsDeleted = () => {
+    const poemID = window.location.pathname.substring(7)
+    const redirectBool = this.state.allPoemIDs.includes(parseInt(poemID))
+    this.setState({ redirect: !redirectBool })
+  }
+  // gets all poem ids and set's state for redirection
+  getAllPoemIDs = async () => {
+    const res = await getAllPoems()
+    const poems = res.data
+    // build array of all poem ids
+    const poemIDs = poems.map(poem => poem.id)
+    this.setState({ allPoemIDs: poemIDs })
+
+    this.checkIfPoemIsDeleted()
+  }
 
   displayLikes = async () => {
     const { poem_id, currentUser } = this.props;
@@ -45,13 +72,15 @@ export default class PoemLarge extends Component {
   };
 
   render() {
-    const { currentUser, poem_id} = this.props;
-    const { heartClass, likes, alert} = this.state;
+
+    const { currentUser, poem_id } = this.props;
+    const { heartClass, likes, alert } = this.state;
+
 
     const { title, username, created_at } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
-    let date = !created_at? '' : new Date(created_at)
-    let date_text= !date? '': `${date.getMonth()}.${date.getDate()}.${date.getFullYear()}`
+    let date = !created_at ? '' : new Date(created_at)
+    let date_text = !date ? '' : `${date.getMonth()}.${date.getDate()}.${date.getFullYear()}`
     try {
       parsed_text = JSON.parse(this.state.poem.text);
     } catch (e) {
@@ -61,11 +90,11 @@ export default class PoemLarge extends Component {
     const lines = !parsed_text
       ? ""
       : parsed_text.blocks.map((line, index) => {
-          return (
-            <p key={index} className={styles.poemLine}>
-              {line.text}
-            </p>
-          );
+        return (
+          <p key={index} className={styles.poemLine}>
+            {line.text}
+          </p>
+        );
       });
 
     return (
@@ -75,11 +104,12 @@ export default class PoemLarge extends Component {
           <p>{date_text}</p>
         </div>
         <h3>{title}</h3>
-          {lines}
-          {alert}
-        
+
+        {lines}
+        {alert}
+
         <div className={styles.poemButtons}>
-        
+
           <div className={styles.like}>
             <svg className={styles.svg}>
               <path
@@ -99,3 +129,5 @@ export default class PoemLarge extends Component {
     );
   }
 }
+
+export default withRouter(PoemLarge)

@@ -18,6 +18,7 @@ export default function AreYouSureMsg(props) {
           props.toggleDeleteMsg(false);
           props.togglePLIcons(true);
           props.hidePoemLargeOptions();
+          props.updateDeletedState()
           history.push('/')
         }}>yes</button>
         

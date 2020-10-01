@@ -25,7 +25,8 @@ body{
   align-items: center;
 }
 .back-icon{
-  flex-basis: 20%
+  flex-basis: 20%;
+  cursor: pointer
 }
 .title{
   font-size: 22px;
