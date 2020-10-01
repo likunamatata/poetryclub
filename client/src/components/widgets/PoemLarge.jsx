@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "../../styles/Poem.module.css";
 import { getOnePoem } from "../../services/poem-helpers";
 import { likePoem, getPoemLikes } from "../../services/like-helpers";
+import { Link } from 'react-router-dom'
 
 export default class PoemLarge extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class PoemLarge extends Component {
       heartClass: styles.unliked,
       alert: "",
     };
+    console.log(props, this.state)
   }
 
   componentDidMount = async () => {
@@ -40,15 +42,16 @@ export default class PoemLarge extends Component {
 
   askToLogin = async () => {
     this.setState({
-      alert: <p>Gotta login first</p>,
+      alert: <p>You need to login first</p>,
     });
   };
 
   render() {
+    console.log(this.props, this.state)
     const { currentUser, poem_id} = this.props;
     const { heartClass, likes, alert} = this.state;
 
-    const { title, username, created_at } = !this.state.poem ? "" : this.state.poem;
+    const { title, username, created_at, user_id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     let date = !created_at? '' : new Date(created_at)
     let date_text= !date? '': `${date.getMonth()}.${date.getDate()}.${date.getFullYear()}`
@@ -71,7 +74,9 @@ export default class PoemLarge extends Component {
     return (
       <div className={styles.poem}>
         <div className={styles.poemHeader}>
-          <p className={styles.poemAuthor}>@{username}</p>
+          <Link to={`/authors/${user_id}`}>
+            <p className={styles.poemAuthor}>@{username}</p>
+          </Link>
           <p>{date_text}</p>
         </div>
         <h3>{title}</h3>

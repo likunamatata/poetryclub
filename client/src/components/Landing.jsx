@@ -22,7 +22,6 @@ export default function Landing(props) {
         history={history}
         formData={loginFormData}
       />
-      <p> or </p>
       <Register
         handleChange={registerHandleChange}
         handleRegister={handleRegister}
