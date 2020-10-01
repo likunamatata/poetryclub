@@ -62,8 +62,6 @@ export default function Header(props) {
         }
         
         
-        <Link to="/" className="title">The Poem Club</Link>
-        {/* : history.go(-2) */}
       </div>
       <Link to="/" className="title">The Poem Club</Link>
       { !props.mainOptions ?
