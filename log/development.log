@@ -42828,3 +42828,1119 @@ Completed 200 OK in 54ms (Views: 0.3ms | ActiveRecord: 41.4ms | Allocations: 451
 Completed 200 OK in 61ms (Views: 0.2ms | ActiveRecord: 35.4ms | Allocations: 4453)
 
 
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:41:23 -0400
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (71.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 193ms (Views: 2.7ms | ActiveRecord: 110.8ms | Allocations: 7994)
+
+
+Started GET "/poems" for ::1 at 2020-09-29 10:41:23 -0400
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:41:23 -0400
+Processing by PoemsController#index as HTML
+  [1m[36mPoem Load (1.5ms)[0m  [1m[34mSELECT "poems".* FROM "poems" ORDER BY "poems"."id" DESC[0m
+  ↳ app/controllers/poems_controller.rb:8:in `index'
+Completed 200 OK in 56ms (Views: 18.3ms | ActiveRecord: 18.6ms | Allocations: 12248)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/26/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/29/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/28/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+  [1m[36mPoem Load (2.1ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 29ms (Views: 18.0ms | ActiveRecord: 8.7ms | Allocations: 6611)
+
+
+Started GET "/users/1/poems/24/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"24"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"28"}
+  [1m[36mLike Load (15.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (2.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 24], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 28], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (3.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (6.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 24]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"26"}
+Completed 200 OK in 55ms (Views: 0.3ms | ActiveRecord: 21.9ms | Allocations: 14776)
+
+
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 8.7ms | Allocations: 6103)
+
+
+Started GET "/users/1/poems/23/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/22/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (4.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 28]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 38ms (Views: 0.5ms | ActiveRecord: 14.4ms | Allocations: 11774)
+
+
+Started GET "/users/1/poems/21/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (12.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 26], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"29"}
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (1.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 26]]
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"21"}
+Completed 200 OK in 39ms (Views: 0.3ms | ActiveRecord: 21.6ms | Allocations: 10590)
+
+
+  Parameters: {"user_id"=>"1", "poem_id"=>"23"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"22"}
+  [1m[36mLike Load (1.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 29], ["user_id", 1]]
+  [1m[36mLike Load (2.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 21], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/17/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (12.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 23], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (13.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 22], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (8.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 21]]
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 22]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 11.6ms | Allocations: 4457)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 14.2ms | Allocations: 5135)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"17"}
+Started GET "/users/1/poems/14/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (5.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 29]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 40ms (Views: 0.3ms | ActiveRecord: 7.3ms | Allocations: 8143)
+
+
+  [1m[36mLike Load (7.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 23]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 36ms (Views: 1.5ms | ActiveRecord: 19.3ms | Allocations: 7846)
+
+
+Started GET "/users/1/poems/13/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/11/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/12/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"14"}
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 14], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (18.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 17], ["user_id", 1]]
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (5.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 14]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 6.3ms | Allocations: 3154)
+
+
+  [1m[36mLike Load (4.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 17]]
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"12"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 23.2ms | Allocations: 8336)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"13"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"11"}
+Started GET "/users/1/poems/9/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (5.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 13], ["user_id", 1]]
+  [1m[36mLike Load (7.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 12], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/8/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (6.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 12]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 13.8ms | Allocations: 3125)
+
+
+  [1m[36mLike Load (8.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 11], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (11.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 13]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (3.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 11]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Started GET "/users/1/poems/7/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"8"}
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 16.3ms | Allocations: 4980)
+
+
+  Parameters: {"user_id"=>"1", "poem_id"=>"9"}
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 12.1ms | Allocations: 6865)
+
+
+  [1m[36mLike Load (3.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 8], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 9], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"7"}
+  [1m[36mLike Load (5.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 8]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 9.2ms | Allocations: 4260)
+
+
+Started GET "/users/1/poems/5/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (3.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 7], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (10.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 9]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 0.6ms | ActiveRecord: 12.2ms | Allocations: 5327)
+
+
+Started GET "/users/1/poems/4/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Started GET "/users/1/poems/3/likes" for ::1 at 2020-09-29 10:41:24 -0400
+  [1m[36mLike Load (8.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 7]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 11.8ms | Allocations: 3766)
+
+
+Started GET "/users/1/poems/1/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"4"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"5"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"1"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"3"}
+  [1m[36mLike Load (13.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 5], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (15.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 3], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (3.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 3]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 18.9ms | Allocations: 2083)
+
+
+  [1m[36mLike Load (29.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 1], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (21.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 5]]
+  [1m[36mLike Load (1.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 34.9ms | Allocations: 5589)
+
+
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 30.6ms | Allocations: 4737)
+
+
+  [1m[36mLike Load (58.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 4], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 4]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 64ms (Views: 0.2ms | ActiveRecord: 58.6ms | Allocations: 8176)
+
+
+Started GET "/users/1/poems/25/likes" for ::1 at 2020-09-29 10:41:24 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"25"}
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 25], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 25]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 1454)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:41:35 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 69ms (Views: 0.7ms | ActiveRecord: 14.3ms | Allocations: 888)
+
+
+Started GET "/poems" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:41:35 -0400
+Processing by PoemsController#index as HTML
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (3.6ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 3.6ms | Allocations: 3884)
+
+
+  [1m[36mPoem Load (19.1ms)[0m  [1m[34mSELECT "poems".* FROM "poems" ORDER BY "poems"."id" DESC[0m
+  ↳ app/controllers/poems_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 9.2ms | ActiveRecord: 19.1ms | Allocations: 8649)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/28/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/29/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/26/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/25/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"29"}
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"28"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"26"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"25"}
+  [1m[36mLike Load (3.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 26], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (6.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 28], ["user_id", 1]]
+  [1m[36mLike Load (15.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 29], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (6.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 25], ["user_id", 1]]
+  [1m[36mLike Load (5.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 26]]
+  [1m[36mLike Load (4.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 8.5ms | Allocations: 4204)
+
+
+  [1m[36mLike Load (7.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 29]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 32ms (Views: 0.5ms | ActiveRecord: 22.2ms | Allocations: 7623)
+
+
+  [1m[36mLike Load (6.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 10.6ms | Allocations: 6049)
+
+
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (14.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 28]]
+Started GET "/users/1/poems/23/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/22/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 21.2ms | Allocations: 8118)
+
+
+Processing by LikesController#index as HTML
+Started GET "/users/1/poems/21/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  [1m[36mLike Load (7.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 25]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"23"}
+Started GET "/users/1/poems/17/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 13.3ms | Allocations: 9921)
+
+
+  Parameters: {"user_id"=>"1", "poem_id"=>"22"}
+Processing by LikesController#index as HTML
+Started GET "/users/1/poems/14/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  [1m[36mLike Load (5.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 23], ["user_id", 1]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"21"}
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (6.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 22], ["user_id", 1]]
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"14"}
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (7.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 21], ["user_id", 1]]
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (6.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 23]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"17"}
+  [1m[36mLike Load (3.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 14], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 17], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 12.0ms | Allocations: 6156)
+
+
+  [1m[36mLike Load (3.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 22]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (2.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 21]]
+  [1m[36mLike Load (3.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 17]]
+Started GET "/users/1/poems/13/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 10.6ms | Allocations: 7607)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"13"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (1.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 14]]
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 6.0ms | Allocations: 5576)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Started GET "/users/1/poems/12/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 4.8ms | Allocations: 7741)
+
+
+  [1m[36mLike Load (3.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 13], ["user_id", 1]]
+Started GET "/users/1/poems/9/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 9.1ms | Allocations: 8652)
+
+
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/11/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Started GET "/users/1/poems/8/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"12"}
+  [1m[36mLike Load (8.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 13]]
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"9"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"11"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 38ms (Views: 0.6ms | ActiveRecord: 11.2ms | Allocations: 7109)
+
+
+  [1m[36mLike Load (6.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 12], ["user_id", 1]]
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"8"}
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/7/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  [1m[36mLike Load (14.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 9], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (7.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 8], ["user_id", 1]]
+  [1m[36mLike Load (16.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 11], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"7"}
+  [1m[36mLike Load (3.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 9]]
+  [1m[36mLike Load (10.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 12]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 16.4ms | Allocations: 8101)
+
+
+  [1m[36mLike Load (2.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 11]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 18.7ms | Allocations: 6688)
+
+
+  [1m[36mLike Load (3.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 8]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (3.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 7], ["user_id", 1]]
+Completed 200 OK in 46ms (Views: 0.4ms | ActiveRecord: 17.7ms | Allocations: 8333)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/5/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Completed 200 OK in 41ms (Views: 0.3ms | ActiveRecord: 11.0ms | Allocations: 7618)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"5"}
+Started GET "/users/1/poems/3/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  [1m[36mLike Load (8.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 7]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 11.3ms | Allocations: 6740)
+
+
+Started GET "/users/1/poems/4/likes" for ::1 at 2020-09-29 10:41:35 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"3"}
+  [1m[36mLike Load (9.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 5], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/1/likes" for ::1 at 2020-09-29 10:41:35 -0400
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 3], ["user_id", 1]]
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (3.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 5]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 12.8ms | Allocations: 4696)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"1"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"4"}
+  [1m[36mLike Load (2.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 3]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 1.2ms | ActiveRecord: 5.5ms | Allocations: 4635)
+
+
+  [1m[36mLike Load (4.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 1], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (6.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 4], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (2.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 6.8ms | Allocations: 3111)
+
+
+  [1m[36mLike Load (11.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 4]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 17.9ms | Allocations: 3793)
+
+
+Started GET "/users/1/poems/24/likes" for ::1 at 2020-09-29 10:41:36 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"24"}
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 24], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 24]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1435)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:41:40 -0400
+Started GET "/poems/30" for ::1 at 2020-09-29 10:41:40 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mPoem Load (1.6ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:66:in `set_poem'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 1.6ms | Allocations: 951)
+
+
+  [1m[36mLike Load (10.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 11.7ms | Allocations: 3190)
+
+
+Started GET "/poems" for ::1 at 2020-09-29 10:41:50 -0400
+Processing by PoemsController#index as HTML
+  [1m[36mPoem Load (1.9ms)[0m  [1m[34mSELECT "poems".* FROM "poems" ORDER BY "poems"."id" DESC[0m
+  ↳ app/controllers/poems_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 1.9ms | Allocations: 3957)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/29/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/28/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/26/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/25/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"29"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"28"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"26"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"25"}
+  [1m[36mLike Load (10.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (7.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 28], ["user_id", 1]]
+  [1m[36mLike Load (10.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 29], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (5.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 26], ["user_id", 1]]
+  [1m[36mLike Load (7.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 25], ["user_id", 1]]
+  [1m[36mLike Load (2.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 41ms (Views: 0.5ms | ActiveRecord: 12.6ms | Allocations: 6369)
+
+
+  [1m[36mLike Load (7.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 28]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 15.0ms | Allocations: 6714)
+
+
+  [1m[36mLike Load (7.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 29]]
+Started GET "/users/1/poems/23/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (4.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 25]]
+  [1m[36mLike Load (6.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 26]]
+Started GET "/users/1/poems/22/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 18.3ms | Allocations: 9630)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 63ms (Views: 0.3ms | ActiveRecord: 12.1ms | Allocations: 10041)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"23"}
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 12.5ms | Allocations: 7767)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"22"}
+Started GET "/users/1/poems/21/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/17/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/14/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (15.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 23], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (17.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 22], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"21"}
+  Parameters: {"user_id"=>"1", "poem_id"=>"17"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"14"}
+  [1m[36mLike Load (1.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 22]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 18.7ms | Allocations: 5128)
+
+
+  [1m[36mLike Load (5.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 17], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (3.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 14], ["user_id", 1]]
+  [1m[36mLike Load (2.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 21], ["user_id", 1]]
+  [1m[36mLike Load (9.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 23]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 56ms (Views: 0.3ms | ActiveRecord: 24.6ms | Allocations: 8348)
+
+
+Started GET "/users/1/poems/13/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/12/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (14.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 17]]
+  [1m[36mLike Load (30.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 14]]
+  [1m[36mLike Load (30.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 21]]
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"12"}
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 20.2ms | Allocations: 7411)
+
+
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 34.1ms | Allocations: 7319)
+
+
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 12], ["user_id", 1]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"13"}
+Started GET "/users/1/poems/9/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Completed 200 OK in 58ms (Views: 0.2ms | ActiveRecord: 32.3ms | Allocations: 8003)
+
+
+Started GET "/users/1/poems/11/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (2.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 13], ["user_id", 1]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"9"}
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 12]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/8/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 3.4ms | Allocations: 5282)
+
+
+  [1m[36mLike Load (2.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 13]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 5.6ms | Allocations: 4531)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"11"}
+  [1m[36mLike Load (1.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 9], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/5/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Started GET "/users/1/poems/7/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (1.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 9]]
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (2.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 11], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"8"}
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 6417)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"5"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"7"}
+  [1m[36mLike Load (1.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 11]]
+  [1m[36mLike Load (1.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 5], ["user_id", 1]]
+  [1m[36mLike Load (3.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 8], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/4/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (2.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 7], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 5]]
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 7557)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Started GET "/users/1/poems/3/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"4"}
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 4214)
+
+
+  [1m[36mLike Load (2.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 7]]
+Started GET "/users/1/poems/1/likes" for ::1 at 2020-09-29 10:41:51 -0400
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 8]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 5.5ms | Allocations: 6375)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 5.6ms | Allocations: 8628)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"1"}
+  [1m[36mLike Load (4.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 4], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"3"}
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 3], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (2.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 1], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (3.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 4]]
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 1]]
+  [1m[36mLike Load (2.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 3]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 7.6ms | Allocations: 7525)
+
+
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.6ms | Allocations: 3293)
+
+
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 4.7ms | Allocations: 4101)
+
+
+Started GET "/users/1/poems/24/likes" for ::1 at 2020-09-29 10:41:51 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"24"}
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 24], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 24]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1435)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:41:53 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+Started GET "/poems/30" for ::1 at 2020-09-29 10:41:53 -0400
+  [1m[36mLike Load (14.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by PoemsController#show as HTML
+  [1m[36mLike Load (1.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+  Parameters: {"id"=>"30"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 16.6ms | Allocations: 2346)
+
+
+  [1m[36mPoem Load (1.3ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/poems_controller.rb:66:in `set_poem'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 1220)
+
+
+Started POST "/auth/login" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"auth"=>{"username"=>"StefonSimmons", "password"=>"[FILTERED]"}, "authentication"=>{"auth"=>{"username"=>"StefonSimmons", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (84.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "StefonSimmons"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 400ms (Views: 0.4ms | ActiveRecord: 84.6ms | Allocations: 1175)
+
+
+Started GET "/poems" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by PoemsController#index as HTML
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.2ms)[0m  [1m[34mSELECT "poems".* FROM "poems" ORDER BY "poems"."id" DESC[0m
+  ↳ app/controllers/poems_controller.rb:8:in `index'
+  [1m[36mPoem Load (1.3ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 1.2ms | Allocations: 4222)
+
+
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 1.3ms | Allocations: 7897)
+
+
+Started GET "/users/1/poems/30/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems/29/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"30"}
+Started GET "/users/1/poems/28/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems/25/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems/26/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  [1m[36mLike Load (14.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 30], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"25"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"26"}
+  [1m[36mLike Load (4.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 26], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (51.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 25], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 26]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"28"}
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 5.7ms | Allocations: 3190)
+
+
+  [1m[36mLike Load (56.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 30]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"29"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 91ms (Views: 0.3ms | ActiveRecord: 70.6ms | Allocations: 7331)
+
+
+Started GET "/users/1/poems/23/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems/22/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  [1m[36mLike Load (17.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 25]]
+  [1m[36mLike Load (23.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 28], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 90ms (Views: 0.2ms | ActiveRecord: 68.9ms | Allocations: 7329)
+
+
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (16.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 29], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/21/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"23"}
+  [1m[36mLike Load (2.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 23], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"22"}
+  [1m[36mLike Load (18.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 28]]
+  [1m[36mLike Load (12.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 29]]
+  [1m[36mLike Load (1.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 22], ["user_id", 1]]
+  [1m[36mLike Load (6.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 23]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 74ms (Views: 0.3ms | ActiveRecord: 41.7ms | Allocations: 9458)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"21"}
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Started GET "/users/1/poems/17/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 8.6ms | Allocations: 5274)
+
+
+  [1m[36mLike Load (7.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 21], ["user_id", 1]]
+Started GET "/users/1/poems/14/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Completed 200 OK in 101ms (Views: 0.3ms | ActiveRecord: 29.2ms | Allocations: 10007)
+
+
+  [1m[36mLike Load (6.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 22]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Completed 200 OK in 49ms (Views: 0.8ms | ActiveRecord: 8.4ms | Allocations: 5855)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"17"}
+Started GET "/users/1/poems/13/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by LikesController#index as HTML
+Started GET "/users/1/poems/12/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  Parameters: {"user_id"=>"1", "poem_id"=>"14"}
+  [1m[36mLike Load (4.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 17], ["user_id", 1]]
+  [1m[36mLike Load (10.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 21]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 14], ["user_id", 1]]
+  Parameters: {"user_id"=>"1", "poem_id"=>"12"}
+Completed 200 OK in 64ms (Views: 0.3ms | ActiveRecord: 18.1ms | Allocations: 7699)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"13"}
+  [1m[36mLike Load (2.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 17]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 12], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/11/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  [1m[36mLike Load (3.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 13], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 6062)
+
+
+  [1m[36mLike Load (2.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 12]]
+  [1m[36mLike Load (3.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 14]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Started GET "/users/1/poems/9/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 4.7ms | Allocations: 8485)
+
+
+  [1m[36mLike Load (7.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 13]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 3.2ms | Allocations: 5247)
+
+
+Started GET "/users/1/poems/7/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Started GET "/users/1/poems/8/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  Parameters: {"user_id"=>"1", "poem_id"=>"11"}
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 10.5ms | Allocations: 5494)
+
+
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"9"}
+Started GET "/users/1/poems/5/likes" for ::1 at 2020-09-29 10:45:11 -0400
+Processing by LikesController#index as HTML
+  [1m[36mLike Load (9.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 11], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  Parameters: {"user_id"=>"1", "poem_id"=>"7"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"5"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"8"}
+  [1m[36mLike Load (5.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 11]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 14.7ms | Allocations: 4587)
+
+
+  [1m[36mLike Load (3.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 7], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (7.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 9], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (6.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 5], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (5.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 8], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Started GET "/users/1/poems/4/likes" for ::1 at 2020-09-29 10:45:11 -0400
+  [1m[36mLike Load (5.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 5]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 12.0ms | Allocations: 4694)
+
+
+  [1m[36mLike Load (10.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 7]]
+  [1m[36mLike Load (6.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 8]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 11.9ms | Allocations: 6330)
+
+
+  [1m[36mLike Load (10.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 9]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"4"}
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 60ms (Views: 0.8ms | ActiveRecord: 17.5ms | Allocations: 11151)
+
+
+Started GET "/users/1/poems/3/likes" for ::1 at 2020-09-29 10:45:12 -0400
+Started GET "/users/1/poems/1/likes" for ::1 at 2020-09-29 10:45:12 -0400
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 14.1ms | Allocations: 8989)
+
+
+  [1m[36mLike Load (5.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 4], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"1"}
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"3"}
+  [1m[36mLike Load (2.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 1], ["user_id", 1]]
+  [1m[36mLike Load (4.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 4]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 0.3ms | ActiveRecord: 10.5ms | Allocations: 4491)
+
+
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (5.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 3], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 3213)
+
+
+  [1m[36mLike Load (0.7ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 3]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 6.4ms | Allocations: 3827)
+
+
+Started GET "/users/1/poems/24/likes" for ::1 at 2020-09-29 10:45:12 -0400
+Processing by LikesController#index as HTML
+  Parameters: {"user_id"=>"1", "poem_id"=>"24"}
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1 AND "likes"."user_id" = $2[0m  [["poem_id", 24], ["user_id", 1]]
+  ↳ app/controllers/likes_controller.rb:7:in `index'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."poem_id" = $1[0m  [["poem_id", 24]]
+  ↳ app/controllers/likes_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1448)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:46:09 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 4.8ms | Allocations: 868)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:46:09 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.1ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 1.1ms | Allocations: 3887)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:46:18 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (18.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 18.7ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:46:18 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.9ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 1.9ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:46:33 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 6.4ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:46:33 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (0.4ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:47:14 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 4.9ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:47:14 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.1ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 1.1ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:48:25 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:48:26 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.8ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 1.8ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:49:08 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (37.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 41ms (Views: 0.7ms | ActiveRecord: 37.8ms | Allocations: 866)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:49:08 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (2.1ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 2.1ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:50:14 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:50:14 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.0ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.0ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:50:50 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:50:50 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (1.2ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 1.2ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:51:13 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:51:13 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (0.6ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.6ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 10:52:12 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 865)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 10:52:12 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (38.7ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 53ms (Views: 13.4ms | ActiveRecord: 38.7ms | Allocations: 3884)
+
+
+Started GET "/auth/verify" for ::1 at 2020-09-29 11:03:20 -0400
+Processing by AuthenticationController#verify as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authorize_request'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 953)
+
+
+Started GET "/users/1/poems" for ::1 at 2020-09-29 11:03:20 -0400
+Processing by PoemsController#user_poems as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mPoem Load (30.8ms)[0m  [1m[34mSELECT "poems".* FROM "poems" WHERE "poems"."user_id" = $1 ORDER BY "poems"."id" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/poems_controller.rb:47:in `user_poems'
+Completed 200 OK in 45ms (Views: 13.0ms | ActiveRecord: 30.8ms | Allocations: 3904)
+
+
