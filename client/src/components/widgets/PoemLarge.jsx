@@ -15,7 +15,6 @@ class PoemLarge extends Component {
       allPoemIDs: [],
       redirect: false
     };
-    console.log(props, this.state)
   }
 
 
@@ -74,16 +73,8 @@ class PoemLarge extends Component {
   };
 
   render() {
-<<<<<<< HEAD
-    console.log(this.props, this.state)
     const { currentUser, poem_id} = this.props;
     const { heartClass, likes, alert} = this.state;
-=======
-
-    const { currentUser, poem_id } = this.props;
-    const { heartClass, likes, alert } = this.state;
-
->>>>>>> 1ae63bacdc33afef349c02a261f09f68b832b6d7
 
     const { title, username, created_at, user_id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
