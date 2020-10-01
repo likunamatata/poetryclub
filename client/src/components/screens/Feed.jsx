@@ -49,8 +49,13 @@ class Feed extends Component {
     // If that value changes, then it will run/update. It updates now.
     if (this.props.submitted) {
       this.getPoems()
-      this.props.updateSubmittedState() //turns submitted to 'false'
+      this.props.updateSubmittedState() //turns submitted to 'false again'
     }
+    if (this.props.deleted) {
+      this.getPoems()
+      this.props.updateDeletedState()
+    }
+    
   }
   getPoems = async () => {
     const res = await getAllPoems();

@@ -4,10 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-div.DraftEditor-root {
-  height: 50vh;
+  height: 75vh
 }
 
 #title-input, div.DraftEditor-root{
@@ -19,14 +16,14 @@ div.DraftEditor-root {
   border: none;
 }
 .public-DraftEditorPlaceholder-inner{
-  color: grey
+  color: grey;
 }
 #title-input::placeholder{
   color: grey;
 }
 #title-input, .DraftEditor-root {
   font-size: 16px;
-  letter-spacing: 2px
+  letter-spacing: 2px;
 }
 
 .submit{

@@ -21,7 +21,9 @@ function UserScreens(props) {
             currentUser={props.currentUser}
             history={props.history}
             submitted={props.submitted}
+            deleted={props.deleted}
             updateSubmittedState={props.updateSubmittedState}
+            updateDeletedState={props.updateDeletedState}
           />
         )}
       />
