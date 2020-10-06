@@ -17,23 +17,20 @@ body{
 }
 
 .header{
-  text-align: center;
-  margin: 25px 0px;
-}
-.sub-header{
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  margin: 25px 15px;
 }
 .back-icon{
-  flex-basis: 20%;
-  cursor: pointer
+  cursor: pointer;
+  width: 34px;
 }
 .title{
   font-size: 18px;
-  flex-basis: 60%
 }
-
+.menu-container{
+  cursor: pointer;
+}
 
 .nav{
   height: 50px;
@@ -51,10 +48,7 @@ body{
 fill: blue;
 }
 
-.menu-container{
-  text-align: right;
-  margin: 0px 30px 0px 30px ;
-}
+
 .material-icons.md-36 { 
   font-size: 36px; 
 }
