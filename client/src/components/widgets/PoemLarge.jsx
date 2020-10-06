@@ -79,7 +79,7 @@ class PoemLarge extends Component {
     const { title, username, created_at, user_id } = !this.state.poem ? "" : this.state.poem;
     let parsed_text = null;
     let date = !created_at ? '' : new Date(created_at)
-    let date_text = !date ? '' : `${date.getMonth()}.${date.getDate()}.${date.getFullYear()}`
+    let date_text = !date ? '' : `${date.getMonth()+1}.${date.getDate()}.${date.getFullYear()}`
     try {
       parsed_text = JSON.parse(this.state.poem.text);
     } catch (e) {
