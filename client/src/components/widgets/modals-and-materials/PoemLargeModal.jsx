@@ -48,7 +48,9 @@ export default function PoemLargeModal(props) {
               userPoemIDs={props.userPoemIDs}
             />
           }
-          {props.shareIcons && <SocialShareIcons />}
+          {props.shareIcons &&
+            <SocialShareIcons />
+          }
           {props.deleteMsg &&
             <AreYouSureMsg
               hidePoemLargeOptions={props.hidePoemLargeOptions}
