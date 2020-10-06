@@ -13,7 +13,7 @@ export default function SocialShareModal() {
       {/* Facebook */}
       <div className='option-icon-container'>
         <a
-          href={`${facebookShareLink}https://www.thepoemclub.com/${location.pathname}`}
+          href={`${facebookShareLink}https://www.thepoemclub.com${location.pathname}`}
           target='_blank'
           rel="noopener noreferrer"
         >
@@ -26,7 +26,7 @@ export default function SocialShareModal() {
       {/* Twitter */}
       <div className='option-icon-container'>
         <a
-          href={`${twitterShareLink}https://www.thepoemclub.com/${location.pathname}`}
+          href={`${twitterShareLink}https://www.thepoemclub.com${location.pathname}`}
           target='_blank'
           rel="noopener noreferrer"
         >
@@ -46,7 +46,7 @@ export default function SocialShareModal() {
       {/* E-Mail */}
       <div className='option-icon-container'>
         <a
-          href={`${emailShareBody}https://www.thepoemclub.com/${location.pathname}${emailSubject}`}
+          href={`${emailShareBody}https://www.thepoemclub.com${location.pathname}${emailSubject}`}
         >
           <svg width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M60.3797 15.5063H9.62025C7.07595 15.5063 5 17.5823 5 20.1266V55.8734C5 58.4177 7.07595 60.4937 9.62025 60.4937H60.3797C62.9241 60.4937 65 58.4177 65 55.8734V20.1266C65 17.5823 62.9241 15.5063 60.3797 15.5063ZM59.7089 18.9241L35.3165 39.7848L10.9241 18.9241H59.7089ZM61.5823 55.8734C61.5823 56.5317 61.038 57.076 60.3797 57.076H9.62025C8.96203 57.076 8.41772 56.5317 8.41772 55.8734V21.2785L34.2025 43.3291C34.2152 43.3418 34.2405 43.3544 34.2532 43.3671C34.2658 43.3798 34.2911 43.3924 34.3038 43.4051C34.3418 43.4304 34.3671 43.4557 34.4051 43.4684C34.4177 43.481 34.4304 43.481 34.443 43.4937C34.4937 43.519 34.5443 43.5443 34.5949 43.5696C34.6076 43.5696 34.6203 43.5823 34.6329 43.5823C34.6709 43.595 34.7089 43.6203 34.7595 43.6329C34.7722 43.6329 34.7975 43.6456 34.8101 43.6456C34.8481 43.6582 34.8861 43.6709 34.924 43.6709C34.9367 43.6709 34.962 43.6836 34.9747 43.6836C35.0127 43.6962 35.0633 43.6962 35.1013 43.7089C35.1139 43.7089 35.1266 43.7089 35.1392 43.7089C35.1899 43.7089 35.2532 43.7215 35.3038 43.7215C35.3544 43.7215 35.4177 43.7215 35.4684 43.7089C35.481 43.7089 35.4937 43.7089 35.5063 43.7089C35.5443 43.7089 35.5949 43.6962 35.6329 43.6836C35.6456 43.6836 35.6709 43.6709 35.6835 43.6709C35.7215 43.6582 35.7595 43.6456 35.7975 43.6456C35.8101 43.6456 35.8354 43.6329 35.8481 43.6329C35.8861 43.6203 35.9241 43.6076 35.9747 43.5823C35.9873 43.5823 36 43.5696 36.0127 43.5696C36.0633 43.5443 36.1139 43.519 36.1646 43.4937C36.1772 43.481 36.1899 43.481 36.2025 43.4684C36.2405 43.4431 36.2658 43.4304 36.3038 43.4051C36.3165 43.3924 36.3418 43.3798 36.3544 43.3671C36.3671 43.3544 36.3924 43.3418 36.4051 43.3291L61.5823 21.8228V55.8734Z" fill="black" />
