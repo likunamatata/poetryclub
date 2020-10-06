@@ -15,6 +15,9 @@
   width: 70%;
   border: none;
 }
+.public-DraftEditorPlaceholder-root{
+  position: absolute; /*makes it so the placeholder doesnt move the cursor to the next line*/
+}
 .public-DraftEditorPlaceholder-inner{
   color: grey;
 }
