@@ -26,7 +26,7 @@ export default function SocialShareModal() {
       {/* Twitter */}
       <div className='option-icon-container'>
         <a
-          href={`${twitterShareLink}https://www.thepoemclub.com/${location.pathname}`}
+          href={`${twitterShareLink}https://www.thepoemclub.com${location.pathname}`}
           target='_blank'
           rel="noopener noreferrer"
         >
