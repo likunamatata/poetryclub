@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import {withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./App.css";
+import PublicScreens from "./components/PublicRoutes";
 import Header from "./components/Header";
 import Routes from "./components/Routes";
 import Nav from "./components/Nav";
-
 import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
-import PublicScreens from "./components/PublicRoutes";
+import {sendEmail} from './services/email-helper'
+// import emailjs from 'emailjs-com'
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends Component {
       poemLargeOptions: false,
       mainOptions: false,
       editClicked: false,
-      registerFormData: {
+      registerFormData: { // for registration email
         username: "",
         email: "",
         password: ""
@@ -28,17 +29,17 @@ class App extends Component {
         password: ""
       },
     };
-  } 
+  }
   // -------------- FOR RENDERING THE FEED ON NEW POEM SUBMISSION ------------------ //
 
   updateSubmittedState = () => {
     this.setState({ submitted: !this.state.submitted })
   }
   updateDeletedState = () => {
-    this.setState({deleted : !this.state.deleted})
+    this.setState({ deleted: !this.state.deleted })
   }
   updateEditClicked = (boolean) => {
-    this.setState({editClicked: boolean})
+    this.setState({ editClicked: boolean })
   }
 
   togglePoemLargeOptions = () => {
@@ -60,9 +61,11 @@ class App extends Component {
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.registerFormData);
+    await sendEmail(this.state.registerFormData) //send email
     this.setState({ currentUser });
     this.props.history.push("/feed");
   };
+
 
   handleLogout = () => {
     localStorage.removeItem("authToken");

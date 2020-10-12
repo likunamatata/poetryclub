@@ -3,7 +3,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 
 export default function Landing(props) {
-  const {
+  const { 
     history,
     handleLogin,
     loginHandleChange,
