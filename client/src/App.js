@@ -60,7 +60,7 @@ class App extends Component {
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.registerFormData);
-    // await sendEmail(this.state.registerFormData) //send email
+    await sendEmail(this.state.registerFormData) //send email
     this.setState({ currentUser });
 
     const registerFormData = {
