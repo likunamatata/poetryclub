@@ -6,8 +6,7 @@ import Header from "./components/Header";
 import Routes from "./components/Routes";
 import Nav from "./components/Nav";
 import { loginUser, registerUser, verifyUser } from "./services/auth-helpers";
-import {sendEmail} from './services/email-helper'
-// import emailjs from 'emailjs-com'
+import { sendEmail } from './services/email-helper'
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class App extends Component {
       poemLargeOptions: false,
       mainOptions: false,
       editClicked: false,
-      registerFormData: { // for registration email
+      registerFormData: {
         username: "",
         email: "",
         password: ""
@@ -33,7 +32,7 @@ class App extends Component {
   // -------------- FOR RENDERING THE FEED ON NEW POEM SUBMISSION ------------------ //
 
   updateSubmittedState = () => {
-    this.setState({ submitted: !this.state.submitted })
+    this.setState(prevState => ({ submitted: !prevState.submitted }))
   }
   updateDeletedState = () => {
     this.setState({ deleted: !this.state.deleted })
@@ -61,9 +60,15 @@ class App extends Component {
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.registerFormData);
-    await sendEmail(this.state.registerFormData) //send email
+    // await sendEmail(this.state.registerFormData) //send email
     this.setState({ currentUser });
-    this.props.history.push("/feed");
+
+    const registerFormData = {
+      username: "",
+      email: "",
+      password: ""
+    }
+    this.setState({ registerFormData })
   };
 
 

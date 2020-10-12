@@ -65,17 +65,17 @@ class Write extends Component {
   };
 
   //CREATE POEM 
-  submitNewPoem = (event) => {
+  submitNewPoem = async (event) => {
     event.preventDefault();
-    createPoem(this.state.poem);
+    await createPoem(this.state.poem);
     this.props.updateSubmittedState() //turns submitted to 'true'
     this.props.history.push('/')
   };
   //UPDATE POEM 
-  submitEditedPoem = (event) => {
+  submitEditedPoem = async (event) => {
     event.preventDefault();
     const { id } = this.props.match.params
-    updatePoem(id,this.state.poem);
+    await updatePoem(id,this.state.poem);
     this.props.updateSubmittedState() //turns submitted to 'true'
     this.props.history.push('/')
   };
