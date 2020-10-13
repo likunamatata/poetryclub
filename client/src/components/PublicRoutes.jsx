@@ -11,7 +11,7 @@ function PublicScreens(props) {
 
       {/* Feed */}
 
-      {/* Search */}
+      {/* Search */} 
       <Route
         exact
         path="/"

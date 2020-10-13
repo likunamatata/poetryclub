@@ -11,7 +11,7 @@ class Register extends Component {
   }
 
   render() {
-    return (
+    return ( 
       <div className="register">
         <form className={styles.authForm} onSubmit={this.props.handleRegister}>
           <input

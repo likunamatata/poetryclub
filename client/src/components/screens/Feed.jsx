@@ -41,7 +41,7 @@ class Feed extends Component {
 
 
   componentDidMount = async () => {
-    this.getPoems()
+    await this.getPoems()
   };
 
   componentDidUpdate = () => {
@@ -55,7 +55,6 @@ class Feed extends Component {
       this.getPoems()
       this.props.updateDeletedState()
     }
-    
   }
   getPoems = async () => {
     const res = await getAllPoems();
