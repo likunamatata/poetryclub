@@ -12,7 +12,7 @@ const Login = (props) => {
         props.handleLogin();
         props.history.push('/');
       }} >
-        <input className={styles.input} name="username" type="text" placeholder="Enter your email" value={props.formData.username} onChange={props.handleChange} />
+        <input className={styles.input} name="username" type="text" placeholder="Enter your username" value={props.formData.username} onChange={props.handleChange} />
         <input className={styles.input} name="password" type="password" placeholder="Enter your password" value={props.formData.password} onChange={props.handleChange} />
 
         <button className={cx(styles.button, styles.loginButton)}>Login</button>
