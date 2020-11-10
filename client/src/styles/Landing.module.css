@@ -33,3 +33,7 @@
   border-radius: 6px;
   padding: 0 10px;
 }
+.errMsg{
+  font-size: 12px;
+  color: red
+}

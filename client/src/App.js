@@ -15,6 +15,7 @@ class App extends Component {
       submitted: false,
       deleted: false,
       currentUser: null,
+      unauthorizedUser: null,
       poemLargeOptions: false,
       mainOptions: false,
       editClicked: false,
@@ -54,7 +55,12 @@ class App extends Component {
   // -------------- AUTH ------------------ //
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.loginFormData);
-    this.setState({ currentUser });
+    currentUser !== 'unauthorized' ? this.setState({ currentUser }) : this.setState({ unauthorizedUser: currentUser });
+    const loginFormData = {
+      username: "",
+      password: ""
+    }
+    currentUser !== 'unauthorized' && this.setState({ loginFormData, unauthorizedUser: null })
   };
 
   handleRegister = async (e) => {
@@ -139,6 +145,7 @@ class App extends Component {
               loginFormData={this.state.loginFormData}
               registerFormData={this.state.registerFormData}
               currentUser={this.state.currentUser}
+              unauthorizedUser={this.state.unauthorizedUser}
               handleRegister={this.handleRegister}
             />
 

@@ -11,6 +11,7 @@ export default function Landing(props) {
     loginFormData,
     registerFormData,
     handleRegister,
+    unauthorizedUser
   } = props;
 
 
@@ -21,6 +22,7 @@ export default function Landing(props) {
         handleLogin={handleLogin}
         history={history}
         formData={loginFormData}
+        unauthorizedUser={unauthorizedUser}
       />
       <Register
         handleChange={registerHandleChange}
