@@ -23,7 +23,7 @@ function PublicScreens(props) {
             registerHandleChange={props.registerHandleChange}
             loginFormData={props.loginFormData}
             registerFormData={props.registerFormData}
-            currentUser={props.currentUser}
+            unauthorizedUser={props.unauthorizedUser}
             handleRegister={props.handleRegister}
           />
         )}

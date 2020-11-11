@@ -4,9 +4,14 @@ const api = axios.create({
 })
 
 export const loginUser = async (loginData) => {
+
   const response = await api.post('/auth/login', { auth: loginData })
+  
+  if (response.data.errors) return response.data.errors //if unauthorized user, return
+  
   localStorage.setItem('authToken', response.data.token)
   api.defaults.headers.common.authorization = `Bearer ${response.data.token}`
+
   return response.data.user;
 }
 
