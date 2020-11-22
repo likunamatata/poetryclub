@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
-import PoemSmall from './PoemSmall'
+// import React, { Component } from 'react'
+// import PoemSmall from './PoemSmall'
 
-class PoemsLiked extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+// class PoemsLiked extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//     };
+//   }
 
-  render() {
+//   render() {
 
-    const { likes, currentUser, getPoemsAndLikes } = this.props
-
-
-    const likesData = likes.filter((liked) => liked.user_id === currentUser.id)
+//     const { likes, currentUser, getPoemsAndLikes } = this.props
 
 
-    const likedPoems = likesData.map((poem, id) => (
-      <PoemSmall poem={poem} key={id} currentUser={currentUser} getPoemsAndLikes={getPoemsAndLikes} />
-    ))
-
-    return (
-      <>
-        {likedPoems}
-      </>
-    );
-  }
-}
+//     const likesData = likes.filter((liked) => liked.user_id === currentUser.id)
 
 
-export default PoemsLiked
+//     const likedPoems = likesData.map((poem, id) => (
+//       <PoemSmall poem={poem} key={id} currentUser={currentUser} getPoemsAndLikes={getPoemsAndLikes} />
+//     ))
+
+//     return (
+//       <>
+//         {likedPoems}
+//       </>
+//     );
+//   }
+// }
+
+
+// export default PoemsLiked
