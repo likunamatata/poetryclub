@@ -14,8 +14,6 @@ class Feed extends Component {
 
   }
 
-
-
   handleSearch = async () => {
     const res = await getSomePoems(this.state.keyword);
     this.setState({
@@ -23,7 +21,7 @@ class Feed extends Component {
     });
   }
 
-  handleChange= async (e) => {
+  handleChange = async (e) => {
     const { name, value } = e.target;
     if (value !== '') {
       this.setState({
